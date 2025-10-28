@@ -89,7 +89,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--turuncu-2);
-      background: #fff;
+      background: #ffffff;
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -319,6 +319,66 @@
   transform: scale(1.15);
 }
 
+
+
+
+/* Ekmek Seçim Ekranı Stili */
+    #ekmek-secim-ekrani {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
+      margin-bottom: 2rem;
+      padding: 10px;
+      flex-wrap: wrap; /* Mobil uyum için */
+    }
+
+    .ekmek-secim-kart {
+      flex: 1 1 200px; /* Flex ayarları */
+      max-width: 30%;
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      border: 3px solid transparent;
+    }
+
+    .ekmek-secim-kart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255,138,0,.2);
+      border-color: var(--turuncu-1);
+    }
+
+    .ekmek-secim-kart img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    }
+
+    .ekmek-ad {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--turuncu-2);
+    }
+
+    #ekmek-menuleri h3 {
+      font-size: 1.5rem;
+      color: var(--turuncu-1);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(255,138,0,.1);
+    }
+    
+    @media (max-width: 560px){
+      #ekmek-secim-ekrani { flex-direction: column; align-items: center; }
+      .ekmek-secim-kart { max-width: 80%; }
+    }
+
   </style>
 </head>
 <body>
@@ -359,7 +419,7 @@
     </div>
 
     <h2><span>⭐ EN ÇOK TERCİH EDİLENLER</span></h2>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ekmek Arası Köri</span><span class="item-price">120₺</span></div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ekmek Arası Köri (Tombik)</span><span class="item-price">120₺</span></div></div>
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tabak Köri</span><span class="item-price">220₺</span></div></div>
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tabak Barbekü</span><span class="item-price">220₺</span></div></div>
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tabak Teriyaki</span><span class="item-price">220₺</span></div></div>
@@ -370,20 +430,75 @@
       <div class="item-header"><span class="item-title">Yükleniyor...</span></div>
     </div>
     
-
     <h2 id="ekmek"><img src="tavuklutavuk.png"><span>EKMEK ARASI</span></h2>
-    <div class="image-container"><img src="ekmek.webp" alt="Ekmek Arası"></div>&nbsp;
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Teriyaki</span><span class="item-price">120₺</span></div><div class="item-desc">Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Barbekü</span><span class="item-price">120₺</span></div><div class="item-desc">Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Soya</span><span class="item-price">120₺</span></div><div class="item-desc">Soya soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Köri</span><span class="item-price">120₺</span></div><div class="item-desc">Köri soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Acılı 🔥</span><span class="item-price">120₺</span></div><div class="item-desc">Acı soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Çıtır</span><span class="item-price">120₺</span></div><div class="item-desc">Çıtır tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Klasik</span><span class="item-price">120₺</span></div><div class="item-desc">Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tatlı Ekşi</span><span class="item-price">120₺</span></div><div class="item-desc">Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Mexican</span><span class="item-price">120₺</span></div><div class="item-desc">Mexican soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ballı Hardal</span><span class="item-price">120₺</span></div><div class="item-desc">Ballı Hardal soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
-    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Sweet Chili</span><span class="item-price">120₺</span></div><div class="item-desc">Sweet Chili soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+
+<div id="ekmek-secim-ekrani">
+  <div class="ekmek-secim-kart" data-menu="tombik">
+    <img src="tombik_ekmek.png" alt="Tombik Ekmek"> <div class="ekmek-ad">TOMBİK EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
+  </div>
+  <div class="ekmek-secim-kart" data-menu="yarim">
+    <img src="yarim_ekmek.png" alt="Yarım Ekmek"> <div class="ekmek-ad">YARIM EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
+  </div>
+  <div class="ekmek-secim-kart" data-menu="tam">
+    <img src="tam_ekmek.png" alt="Tam Ekmek"> <div class="ekmek-ad">TAM EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
+  </div>
+</div>
+
+<div id="ekmek-menuleri" style="display: none;">
+  <button id="geri-don-btn" class="enter-menu-btn" style="margin-bottom: 20px;">
+    ← EKMEK SEÇİMİNE GERİ DÖN
+  </button>
+  
+  <div id="tombik-menu" class="ekmek-menu-list">
+    <h3>Tombik Ekmek Arası Seçenekleri</h3>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Teriyaki (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Barbekü (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Soya (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Soya soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Köri (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Köri soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Acılı 🔥 (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Acı soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Çıtır (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Çıtır tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Klasik (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tatlı Ekşi (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Mexican (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Mexican soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ballı Hardal (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Ballı Hardal soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Sweet Chili (Tombik)</span><span class="item-price">120₺</span></div><div class="item-desc">Sweet Chili soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+  </div>
+  
+  <div id="yarim-menu" class="ekmek-menu-list" style="display:none;">
+    <h3>Yarım Ekmek Arası Seçenekleri</h3>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Teriyaki (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Barbekü (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Soya (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Soya soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Köri (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Köri soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Acılı 🔥 (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Acı soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Çıtır (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Çıtır tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Klasik (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tatlı Ekşi (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Mexican (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Mexican soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ballı Hardal (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Ballı Hardal soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Sweet Chili (Yarım)</span><span class="item-price">120₺</span></div><div class="item-desc">Sweet Chili soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+  </div>
+  
+  <div id="tam-menu" class="ekmek-menu-list" style="display:none;">
+    <h3>Tam Ekmek Arası Seçenekleri</h3>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Teriyaki (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Barbekü (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Soya (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Soya soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Köri (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Köri soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Acılı 🔥 (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Acı soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Çıtır (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Çıtır tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Klasik (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Tatlı Ekşi (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Mexican (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Mexican soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Ballı Hardal (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Ballı Hardal soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+    <div class="item"><div class="item-header"><span class="item-title">Tavuklu Sweet Chili (Tam)</span><span class="item-price">120₺</span></div><div class="item-desc">Sweet Chili soslu tavuk, marul, domates, turşu, karamelize soğan, pide ekmeği</div></div>
+  </div>
+</div>
+    
+
+
+
+
 
 
     <h2 id="tabak"><img src="tavuklutavuk.png"><span>TABAK</span></h2>
@@ -523,6 +638,40 @@
         menuBtn.style.display = "block";
       });
     });
+
+
+// Ekmek Arası Menü Geçişi Kodları
+    const ekmekSecimEkrani = document.getElementById('ekmek-secim-ekrani');
+    const ekmekMenuleriContainer = document.getElementById('ekmek-menuleri');
+    const geriDonBtn = document.getElementById('geri-don-btn');
+    const ekmekSecimKartlari = document.querySelectorAll('.ekmek-secim-kart');
+    const ekmekMenuLists = document.querySelectorAll('.ekmek-menu-list');
+
+    // Tüm menüleri gizler
+    function gizleTumMenuleri() {
+      ekmekMenuLists.forEach(list => list.style.display = 'none');
+    }
+
+    // Kartlara tıklama olayını ekler
+    ekmekSecimKartlari.forEach(kart => {
+      kart.addEventListener('click', function() {
+        const menuId = this.getAttribute('data-menu'); // 'tombik', 'yarim' veya 'tam'
+        
+        ekmekSecimEkrani.style.display = 'none'; // Seçim ekranını gizle
+        ekmekMenuleriContainer.style.display = 'block'; // Menü container'ı göster
+
+        gizleTumMenuleri(); // Önceki açık menüyü gizle
+        document.getElementById(menuId + '-menu').style.display = 'block'; // İlgili menüyü göster
+      });
+    });
+
+    // Geri Dön butonuna tıklama olayını ekler
+    geriDonBtn.addEventListener('click', function() {
+      ekmekMenuleriContainer.style.display = 'none'; // Menü container'ı gizle
+      ekmekSecimEkrani.style.display = 'flex'; // Seçim ekranını göster
+      gizleTumMenuleri(); // Açık kalmış menüyü gizle
+    });
+    
 
   </script>
 </body>
