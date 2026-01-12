@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="ico.png" type="image/x-icon" />
-  <title>Tavuklu Menü</title>
+  <title>Tavuklu Menü - QA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -373,6 +373,102 @@
       padding-bottom: 10px;
       border-bottom: 2px solid rgba(255,138,0,.1);
     }
+
+    
+    /* AVANTAJ MENÜLERİ CSS */
+    .avantaj-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 600px) {
+      .avantaj-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1080px) {
+      .avantaj-container { grid-template-columns: repeat(3, 1fr); }
+    }
+    .avantaj-card {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .avantaj-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255,138,0,.25);
+    }
+    .avantaj-image-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* 1:1 Kare Oran */
+      overflow: hidden;
+    }
+    .avantaj-image-wrapper img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+    .avantaj-card:hover .avantaj-image-wrapper img { transform: scale(1.08); }
+    
+    .avantaj-price-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: linear-gradient(135deg, #FF8A00, #FF3D00);
+      color: #fff;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: popPrice 1.5s infinite ease-in-out;
+      z-index: 2;
+    }
+    @keyframes popPrice {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+    .avantaj-info { padding: 12px; text-align: center; }
+    .avantaj-title { font-weight: 800; color: var(--turuncu-2); font-size: 1rem; margin-bottom: 4px; line-height: 1.3; }
+    .avantaj-desc { font-size: 0.85rem; color: #666; font-weight: 500; }
+
+    /* POP-UP MODAL STİLİ */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 10002;
+      display: none; justify-content: center; align-items: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+    .modal-box {
+      background: #fff; width: 90%; max-width: 450px;
+      border-radius: 20px; padding: 25px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      transform: scale(0.8); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); opacity: 1; }
+    .modal-close {
+      position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #aaa; line-height: 1;
+    }
+    .modal-title { font-size: 1.4rem; font-weight: 800; color: var(--turuncu-2); margin-bottom: 5px; padding-right: 30px; }
+    .modal-desc { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    
+    /* Yeni Menü İçeriği Listesi Stili */
+    .modal-menu-list { list-style: none; padding: 0; margin: 0; }
+    .modal-menu-list li { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #FFF7EF; margin-bottom: 8px; border-radius: 10px; font-weight: 600; color: #555; border: 1px solid rgba(255,138,0,0.1); }
+    .modal-menu-list li span { font-size: 1.4rem; }
+
+    .sauce-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-height: 250px; overflow-y: auto; padding: 5px; }
+    .sauce-btn {
+      background: var(--bg-light); border: 2px solid rgba(255,138,0,0.15);
+      padding: 10px; border-radius: 10px; font-weight: 600; color: #444; cursor: pointer; font-size: 0.9rem;
+      transition: all 0.2s ease; text-align: center;
+    }
+    .sauce-btn:hover { background: #fff; border-color: var(--turuncu-1); transform: translateY(-2px); }
+    .sauce-btn.selected { background: var(--turuncu-1); color: #fff; border-color: var(--turuncu-1); box-shadow: 0 4px 10px rgba(255,138,0,0.3); }
     
     @media (max-width: 560px){
       #ekmek-secim-ekrani { flex-direction: column; align-items: center; }
@@ -428,6 +524,98 @@
     <h2><img src="tavuklutavuk.png"><span>🍴BUGÜN NE YESEN?</span></h2>
     <div class="item" id="randomMenu">
       <div class="item-header"><span class="item-title">Yükleniyor...</span></div>
+    </div>
+    
+    <h2><img src="tavuklutavuk.png"><span>🔥 AVANTAJ MENÜLERİ</span></h2>
+    <div class="avantaj-container">
+      <!-- Menü 1 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tabak Menü 1', 'Tavuklu Tabak + Patates + Kutu İçecekler', '350₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tabak-cola.png" alt="Avantaj Menü 1">
+          <div class="avantaj-price-badge">350₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tabak Menü 1</div>
+          <div class="avantaj-desc">Tavuklu Tabak + Patates + Kutu İçecekler</div>
+        </div>
+      </div>
+      <!-- Menü 2 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tabak Menü 2', 'Tavuklu Tabak + Patates + Uludağ Gazoz', '320₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tabak-gazoz.png" alt="Avantaj Menü 2">
+          <div class="avantaj-price-badge">280₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tabak Menü 2</div>
+          <div class="avantaj-desc">Tavuklu Tabak + Patates + Uludağ Gazoz</div>
+        </div>
+      </div>
+      <!-- Menü 3 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tam Ekmek Menü 1', 'Tam Ekmek Tavuklu + Patates + Ayran', '320₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tam-ayran.png" alt="Avantaj Menü 3">
+          <div class="avantaj-price-badge">320₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tam Ekmek Menü 1</div>
+          <div class="avantaj-desc">Tam Ekmek Tavuklu + Patates + Ayran</div>
+        </div>
+      </div>
+      <!-- Menü 4 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tam Ekmek Menü 2', 'Tam Ekmek Tavuklu + Patates + Kutu İçecekler', '350₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tam-cola.png" alt="Avantaj Menü 4">
+          <div class="avantaj-price-badge">350₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tam Ekmek Menü 2</div>
+          <div class="avantaj-desc">Tam Ekmek Tavuklu + Patates + Kutu İçecekler</div>
+        </div>
+      </div>
+      <!-- Menü 5 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tam Ekmek Menü 3', 'Tam Ekmek Tavuklu + Patates + Uludağ Gazoz', '320₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tam-gazoz.png" alt="Avantaj Menü 5">
+          <div class="avantaj-price-badge">320₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tam Ekmek Menü 3</div>
+          <div class="avantaj-desc">Tam Ekmek Tavuklu + Patates + İçecek</div>
+        </div>
+      </div>
+      <!-- Menü 6 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tombik Ekmek Menü 1', 'Tombik Ekmek Tavuklu + Patates + Ayran', '230₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tombik-ayran.png" alt="Avantaj Menü 6">
+          <div class="avantaj-price-badge">230₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tombik Ekmek Menü 1</div>
+          <div class="avantaj-desc">Tombik Ekmek Tavuklu + Patates + Ayran</div>
+        </div>
+      </div>
+      <!-- Menü 7 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tombik Ekmek Menü 2', 'Tombik Ekmek Tavuklu + Patates + Kutu İçecekler', '250₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tombik-cola.png" alt="Avantaj Menü 7">
+          <div class="avantaj-price-badge">250₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tombik Ekmek Menü 2</div>
+          <div class="avantaj-desc">Tombik Ekmek Tavuklu + Patates + Kutu İçecekler</div>
+        </div>
+      </div>
+      <!-- Menü 8 -->
+      <div class="avantaj-card" onclick="openSauceModal('Avantaj Tombik Ekmek Menü 3', 'Tombik Ekmek Tavuklu + Patates + Uludağ Gazoz', '230₺')">
+        <div class="avantaj-image-wrapper">
+          <img src="tombik-gazoz.png" alt="Avantaj Menü 8">
+          <div class="avantaj-price-badge">230₺</div>
+        </div>
+        <div class="avantaj-info">
+          <div class="avantaj-title">Avantaj Tombik Ekmek Menü 3</div>
+          <div class="avantaj-desc">Tombik Ekmek Tavuklu + Patates + Uludağ Gazoz</div>
+        </div>
+      </div>
     </div>
     
     <h2 id="ekmek"><img src="tavuklutavuk.png"><span>EKMEK ARASI</span></h2>
@@ -565,6 +753,19 @@
     </footer>
   </div>
 
+  <!-- SOS SEÇİM MODALI -->
+  <div id="sauce-modal" class="modal-overlay">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeSauceModal()">&times;</span>
+      <div class="modal-title" id="modal-title">Menü Başlığı</div>
+      <div class="modal-desc" id="modal-desc">Menü İçeriği</div>
+      <div style="font-weight:700; margin-bottom:10px; color:var(--turuncu-2);">Lütfen Sos Seçiniz:</div>
+      <div class="sauce-grid" id="sauce-grid">
+        <!-- Soslar JS ile buraya gelecek -->
+      </div>
+    </div>
+  </div>
+
   <script>
     // Karşılama Ekranı ve Menü Giriş Fonksiyonu
     document.addEventListener('DOMContentLoaded', () => {
@@ -677,6 +878,63 @@
       gizleTumMenuleri(); // Açık kalmış menüyü gizle
     });
     
+    // --- AVANTAJ MENÜ POPUP KODLARI ---
+    const sauces = [
+      "Dağ Kekikli ve Kremalı", "Teriyaki", "Barbekü", "Soya", "Köri", 
+      "Acılı", "Klasik", "Tatlı Ekşi", "Mexican", "Ballı Hardal", "Sweet Chili"
+    ];
+    
+    let currentMenu = "";
+    let currentPrice = "";
+    let selectedSauce = "";
+
+    function openSauceModal(title, desc, price) {
+      currentMenu = title;
+      currentPrice = price;
+      selectedSauce = ""; // Sıfırla
+      
+      document.getElementById('modal-title').innerText = title + " (" + price + ")";
+      
+      // Menü içeriğini parçalayıp güzel bir liste haline getiriyoruz
+      const items = desc.split(' + ');
+      let htmlContent = '<ul class="modal-menu-list">';
+      items.forEach(item => {
+        let icon = '🍗'; // Varsayılan ikon (Ana yemek)
+        if(item.includes('Patates')) icon = '🍟';
+        if(item.includes('İçecek')) icon = '🥤';
+        if(item.includes('Ekmek') || item.includes('Burger')) icon = '🥪';
+        
+        htmlContent += `<li><span>${icon}</span> ${item}</li>`;
+      });
+      htmlContent += '</ul>';
+      document.getElementById('modal-desc').innerHTML = htmlContent;
+      
+      const grid = document.getElementById('sauce-grid');
+      grid.innerHTML = '';
+      
+      sauces.forEach(sauce => {
+        const btn = document.createElement('div');
+        btn.className = 'sauce-btn';
+        btn.innerText = sauce;
+        btn.onclick = () => {
+          document.querySelectorAll('.sauce-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedSauce = sauce;
+        };
+        grid.appendChild(btn);
+      });
+      
+      document.getElementById('sauce-modal').classList.add('active');
+    }
+    
+    function closeSauceModal() {
+      document.getElementById('sauce-modal').classList.remove('active');
+    }
+    
+    // Modal dışına tıklayınca kapatma
+    document.getElementById('sauce-modal').addEventListener('click', (e) => {
+      if(e.target.id === 'sauce-modal') closeSauceModal();
+    });
 
   </script>
 </body>
