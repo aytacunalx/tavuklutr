@@ -470,6 +470,60 @@
     .sauce-btn:hover { background: #fff; border-color: var(--turuncu-1); transform: translateY(-2px); }
     .sauce-btn.selected { background: var(--turuncu-1); color: #fff; border-color: var(--turuncu-1); box-shadow: 0 4px 10px rgba(255,138,0,0.3); }
     
+    /* GURME BURGER ÖZEL KART TASARIMI */
+    .gurme-card {
+      background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+      border: 2px solid #FFC107; /* Altın sarısı çerçeve */
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      position: relative;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+    .gurme-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+    .gurme-image-box {
+      width: 100%;
+      height: 240px; /* Görselin oranına göre ayarlandı */
+      overflow: hidden;
+      position: relative;
+    }
+    .gurme-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gurme-card:hover .gurme-image-box img {
+      transform: scale(1.05);
+    }
+    .gurme-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #FFC107;
+      color: #000;
+      font-weight: 800;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 2;
+      animation: pulseBadge 2s infinite;
+    }
+    @keyframes pulseBadge { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    .gurme-details { padding: 1.2rem; color: #fff; }
+    .gurme-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+    .gurme-title { font-family: 'Takeover', sans-serif; font-size: 1.6rem; color: #FFC107; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+    .gurme-price { font-size: 1.3rem; font-weight: 900; background: #FF3D00; padding: 5px 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(255, 61, 0, 0.4); }
+    .gurme-desc { font-size: 1rem; color: #ddd; line-height: 1.5; font-weight: 500; }
+
+
+
     @media (max-width: 560px){
       #ekmek-secim-ekrani { flex-direction: column; align-items: center; }
       .ekmek-secim-kart { max-width: 80%; }
@@ -720,10 +774,20 @@
 
     <h2 id="burger"><img src="tavuklutavuk.png"><span>BURGER</span></h2>
     <div class="image-container"><img src="burger2.webp" alt="Burger"></div>&nbsp;
+
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Burger</span><span class="item-price">230₺</span></div><div class="item-desc">Tavuklu burger, marul, domates, karamelize soğan, turşu, burger sos ve barbekü sos</div></div>
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Cheddar Burger</span><span class="item-price">250₺</span></div><div class="item-desc">Tavuklu burger, marul, domates, karamelize soğan, turşu, burger sos, barbekü sos ve cheddar sosu</div></div>
     <div class="item"><div class="item-header"><span class="item-title">Tavuklu Trüflü Mayonezli Burger</span><span class="item-price">250₺</span></div><div class="item-desc">Tavuklu burger, marul, domates, karamelize soğan, turşu ve trüflü mayonez</div></div>
     
+    <!-- YENİ GURME BURGER KARTI -->
+    <div class="gurme-card">
+      <div class="gurme-badge">YENİ & ÖZEL</div>
+      <div class="gurme-image-box"><img src="gurme-burger.png" alt="Tavuklu Gurme Burger"></div>
+      <div class="gurme-details">
+        <div class="gurme-header"><span class="gurme-title">Tavuklu Gurme Burger</span><span class="gurme-price">260₺</span></div>
+        <div class="gurme-desc">İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir final! Tavuklu Gurme Burger, ezber bozmaya geldi.</div>
+      </div>
+    </div>
 
     <h2 id="aperatif"><img src="tavuklutavuk.png"><span>APERATİFLER</span></h2>
     <div class="image-container"><img src="citir.webp" alt="Çıtır Tabak"></div>&nbsp;
