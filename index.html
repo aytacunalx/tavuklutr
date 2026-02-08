@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/ico.png" type="image/x-icon" />
+    <title>tavuklu 🔥</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Takeover';
+            src: url('Takeover.ttf') format('truetype');
+        }
+
+        :root {
+            --bg-soft: #FAFAF8;
+            --orange: #FF6B35;
+            --orange-dark: #E55A2B;
+            --orange-light: #FF8A5B;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Takeover', 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .nav-menu-btn {
+            background: var(--orange);
+            color: var(--white);
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .nav-menu-btn:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .nav-menu-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 72px;
+            padding: 60px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, -30px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange-light), var(--orange));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.25);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(42px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 22px);
+            color: var(--text-gray);
+            margin-bottom: 36px;
+            line-height: 1.5;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            margin-top: 60px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .chicken-mascot {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #FFE5D9 0%, #FFF3ED 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chicken-mascot::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .mascot-emoji {
+            animation: wiggle 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            font-size: 32px;
+            animation: floatAround 6s ease-in-out infinite;
+        }
+
+        .float-item:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-item:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .float-item:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 24px;
+            background: var(--white);
+        }
+
+        .features-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .features-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .features-header p {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-soft);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light));
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
+        }
+
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            animation-delay: 0.4s;
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            animation-delay: 0.6s;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, #FFF3ED 0%, var(--bg-soft) 100%);
+            text-align: center;
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--orange);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .review-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 24px;
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .reviewer {
+            font-size: 16px;
+            color: var(--text-gray);
+            font-style: normal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 24px;
+            text-align: center;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .cta-emoji {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 32px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 60px 24px 32px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Takeover', 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-tagline {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: var(--orange);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Product Slider */
+        .product-slider {
+            padding: 80px 24px;
+            background: var(--bg-soft);
+            position: relative;
+        }
+
+        .slider-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slider-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slider-title h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .slider-viewport {
+            overflow: hidden;
+            margin: 0 20px;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .product-card {
+            flex: 0 0 calc(33.333% - 16px);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .product-info p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--orange);
+            font-size: 18px;
+        }
+
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: none;
+            box-shadow: var(--shadow-md);
+            color: var(--orange);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .prev-slide { left: -20px; }
+        .next-slide { right: -20px; }
+
+        @media (max-width: 992px) {
+            .product-card { flex: 0 0 calc(50% - 12px); }
+        }
+
+        @media (max-width: 600px) {
+            .product-card { flex: 0 0 100%; }
+            .slider-viewport { margin: 0; }
+            .prev-slide { left: 10px; }
+            .next-slide { right: 10px; }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            animation: scrollBounce 2s ease-in-out infinite;
+            cursor: pointer;
+            z-index: 100;
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-menu-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 40px 20px 60px;
+            }
+
+            .hero-badge {
+                font-size: 12px;
+                padding: 6px 16px;
+            }
+
+            .chicken-mascot {
+                height: 300px;
+                font-size: 120px;
+            }
+
+            .float-item {
+                font-size: 24px;
+            }
+
+            .features, .social-proof, .cta-section {
+                padding: 60px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 28px;
+            }
+
+            .social-stats {
+                gap: 32px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .review-text {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                font-size: 16px;
+            }
+
+            .scroll-indicator {
+                bottom: 24px;
+                width: 44px;
+                height: 44px;
+                font-size: 28px;
+            }
+        }
+
+        /* Interaction States */
+        @media (hover: hover) {
+            .feature-card:hover .feature-icon {
+                animation: none;
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="img/tavuklutavuk.png" alt="tavuklu" class="logo-img">
+            <span>tavuklu.tr</span>
+        </div>
+        <button class="nav-menu-btn" onclick="scrollToMenu()">Menüyü Gör</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Şehrin En İyi Tavuğu</div>
+            <h1>
+                Tavuk yemek <br>
+                <span class="hero-highlight">hiç bu kadar vibe olmamıştı</span>
+            </h1>
+            <p class="hero-subtitle">
+                Taze malzeme, bol baharat, sıfır drama. Sadece gerçek lezzet. Karnını doyur, moralini yükselt.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary" onclick="scrollToMenu()">Menüye Git 🍗</button>
+                <button class="btn btn-secondary" onclick="scrollToFeatures()">Neden Biz?</button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="chicken-mascot">
+                <span class="mascot-emoji">🍗</span>
+                <div class="floating-elements">
+                    <div class="float-item">🔥</div>
+                    <div class="float-item">✨</div>
+                    <div class="float-item">😋</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>Neden herkes bizi konuşuyor?</h2>
+            <p>Çünkü tavuk işini hakkını vererek yapıyoruz. Basit.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🍗</div>
+                <h3>Taze & Kaliteli</h3>
+                <p>Hiç donmuş tavuk kullanmıyoruz. Her gün taze, her lokmada fark edilir. Standartlarımız var, onları çiğnemiyoruz.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Hızlı Servis</h3>
+                <p>Acıktığında beklemek istemezsin. Biz de istemeyiz. Sipariş ver, al, ye. İşte bu kadar basit.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <div>
+                    <h3>Bold Lezzetler</h3>
+                    <p>Sıradan değil, unutulmaz. Baharatlarımız hep bir adım ötede. Her ısırık bir deneyim.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Uygun Fiyat</h3>
+                <p>Cüzdanını şoka uğratmadan doyuruyoruz. Kaliteyi feda etmeden, bütçe dostu. Win-win.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <!-- <section class="social-proof">
+        <div class="social-stats">
+            <div class="stat">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Mutlu Müşteri</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4.9★</span>
+                <span class="stat-label">Ortalama Puan</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Günlük Sipariş</span>
+            </div>
+        </div>
+
+        <p class="review-text">
+            "İlk lokmada anladım zaten. Bu tavuk başka tavuk değil. Artık başka yere gidemiyorum bile. Bağımlılık yaptı resmen."
+        </p>
+        <p class="reviewer">— @foodiebae, Instagram</p>
+    </section> -->
+
+    <!-- Product Slider Section -->
+    <section class="product-slider" id="products">
+        <div class="slider-wrapper">
+            <div class="slider-title">
+                <h2>Favori Lezzetler 🍔</h2>
+                <p>Müşterilerimizin en çok tercih ettiği menüler</p>
+            </div>
+            
+            <button class="slider-nav-btn prev-slide" onclick="moveSlide(-1)">❮</button>
+            
+            <div class="slider-viewport">
+                <div class="slider-track" id="productTrack">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <img src="img/gurme-burger.png" alt="GurmeBurger" class="product-image">
+                        <div class="product-info">
+                            <h3>Tavuklu Gurme Burger</h3>
+                            <p>İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir final! Tavuklu Gurme Burger, ezber bozmaya geldi.</p>
+                            <div class="product-price">240₺</div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <img src="img/tabak.jpeg" alt="Tabak" class="product-image">
+                        <div class="product-info">
+                            <h3>Tavuklu Tabak Köri</h3>
+                            <p>Köri soslu tavuk, kremalı pesto soslu makarna ve salata</p>
+                            <div class="product-price">320₺</div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <img src="img/tamekmek.jpg" alt="Wrap" class="product-image">
+                        <div class="product-info">
+                            <h3>Tavuklu Bütün Ekmek Köri</h3>
+                            <p>Lavaş arası ızgara tavuk ve taze yeşillikler.</p>
+                            <div class="product-price">180₺</div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=500&auto=format&fit=crop&q=60" alt="Pizza" class="product-image">
+                        <div class="product-info">
+                            <h3>Tavuklu Pizza</h3>
+                            <p>İnce hamur, barbekü soslu tavuk parçaları.</p>
+                            <div class="product-price">260₺</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-nav-btn next-slide" onclick="moveSlide(1)">❯</button>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="menu-section">
+        <div class="cta-content">
+            <span class="cta-emoji">🍗</span>
+            <h2>Karnın açsa, ne bekliyorsun?</h2>
+            <p>Menüye göz at, siparişini ver, tadını çıkar. Basit ve lezzetli.</p>
+            <button class="btn btn-primary" onclick="goToMenu()">Menüyü Keşfet 🔥</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><img src="img/tavuklutavuk.png" alt="tavuklu" class="logo-img"> tavuklu.tr</div>
+            <p class="footer-tagline">Tavuk işinde en iyiler. Noktasız virgülsüz.</p>
+            
+            <div class="footer-social">
+                <div class="social-icon">📷</div>
+                <div class="social-icon">🎵</div>
+                <div class="social-icon">🐦</div>
+                <div class="social-icon">💬</div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 tavuklu.tr Tüm hakları saklıdır. Made with 🔥 and 🍗</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" onclick="scrollToFeatures()">⬇️</div>
+
+    <script>
+        // Smooth scroll functions
+        let currentSlideIndex = 0;
+        let autoSlideInterval;
+
+        function moveSlide(direction, isAuto = false) {
+            const track = document.getElementById('productTrack');
+            const cards = document.querySelectorAll('.product-card');
+            if (!cards.length) return;
+            
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 24; // CSS gap
+            
+            // Determine visible items
+            let visibleItems = 3;
+            if (window.innerWidth <= 600) visibleItems = 1;
+            else if (window.innerWidth <= 992) visibleItems = 2;
+
+            const maxIndex = Math.max(0, cards.length - visibleItems);
+
+            let nextIndex = currentSlideIndex + direction;
+
+            // Otomatik kaydırma döngüsü (sona gelince başa dön)
+            if (isAuto && nextIndex > maxIndex) {
+                nextIndex = 0;
+            }
+
+            if (nextIndex < 0) nextIndex = 0;
+            if (nextIndex > maxIndex) nextIndex = maxIndex;
+
+            currentSlideIndex = nextIndex;
+
+            const moveAmount = (cardWidth + gap) * currentSlideIndex;
+            track.style.transform = `translateX(-${moveAmount}px)`;
+
+            // Manuel etkileşimde zamanlayıcıyı sıfırla
+            if (!isAuto) {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+        }
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => moveSlide(1, true), 5000);
+        }
+
+        // Otomatik kaydırmayı başlat
+        startAutoSlide();
+
+        // Reset slider on resize
+        window.addEventListener('resize', () => {
+            currentSlideIndex = 0;
+            moveSlide(0);
+        });
+
+        function scrollToMenu() {
+            document.getElementById('menu-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        }
+
+        function goToMenu() {
+            // This would navigate to your actual menu page
+            alert('🔥 Menü sayfasına yönlendiriliyorsunuz! (menu.html sayfanızı buraya bağlayın)');
+            // window.location.href = 'menu.html';
+        }
+
+        // Hide scroll indicator after scroll
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            const indicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                indicator.style.opacity = '0';
+                indicator.style.pointerEvents = 'none';
+            } else {
+                indicator.style.opacity = '1';
+                indicator.style.pointerEvents = 'all';
+            }
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
