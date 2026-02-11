@@ -1,802 +1,855 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/ico.png" type="image/x-icon" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDF5PPDR8F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JDF5PPDR8F');
+    </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="/img/ico.png" type="image/x-icon" />
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDF5PPDR8F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- SEO Meta Etiketleri -->
+    <title>Tavuklu Menü - Lezzet Dolu Seçenekler</title>
+    <meta name="description" content="Tavuklu güncel menü ve fiyatları. Köri soslu, barbekü soslu tavuklar, gurme burgerler ve avantajlı menüler.">
+    <meta name="keywords" content="tavuklu menü, tavuklu fiyat listesi, tavuk fiyatları, burger menü, mustafakemalpaşa yemek fiyatları">
 
-  gtag('config', 'G-JDF5PPDR8F');
-</script>
-
-  <!-- SEO Meta Etiketleri -->
-  <title>Tavuklu Menü ve Fiyat Listesi | Ekmek Arası, Tabak ve Burgerler</title>
-  <meta name="description" content="Tavuklu güncel menü ve fiyatları. Köri soslu, barbekü soslu tavuklar, gurme burgerler ve avantajlı menülerimizi inceleyin. Mustafakemalpaşa paket servis.">
-  <meta name="keywords" content="tavuklu menü, tavuklu fiyat listesi, tavuk fiyatları, burger menü, mustafakemalpaşa yemek fiyatları">
-  
-  <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
-  <meta property="og:title" content="Tavuklu - Güncel Menü ve Fiyatlar 🍗">
-  <meta property="og:description" content="Acıktın mı? En sevilen tavuk ve burger çeşitlerimize hemen göz at!">
-  <meta property="og:image" content="/img/gurme-burger.png">
-  <meta property="og:type" content="website">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* >>> YENİ EKLENEN KISIM: Takeover Fontu <<< */
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @import url('https://fonts.cdnfonts.com/css/takeover');
 
-    :root{
-      --turuncu-1:#FF8A00;
-      --turuncu-2:#FF6A00;
-      --turuncu-3:#FFC107;
-      --bg-light:#FFF7EF;
-      --text:#3d3d3d;
-    }
+    <style>
+        :root {
+            --bg-soft: #FAFAF8;
+            --orange: #FF6B35;
+            --orange-dark: #E55A2B;
+            --orange-light: #FF8A5B;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: #ff9c2a;
-      background-attachment: fixed;
-      background-size: 140% 140%;
-      animation: bgShift 12s ease-in-out infinite alternate;
-    }
-    @keyframes bgShift{
-      0%{background-position: 0% 0%}
-      100%{background-position: 100% 100%}
-    }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* GÜNCEL KAMPANYA/KARŞILAMA EKRANI STİLİ */
-    #welcome-screen {
-      position: fixed; inset:0;
-      background: linear-gradient(135deg, var(--turuncu-1), var(--turuncu-2));
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 0.8s ease;
-    }
-    #welcome-screen.hidden { opacity: 0; pointer-events: none; } /* Gizlendiğinde animasyonlu kaybolma */
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-    /* GIF LOGO STİLİ */
-    #welcome-screen .logo-gif { 
-      width: 200px; 
-      margin-bottom: 20px; 
-      animation: skate 0.5s infinite alternate ease-in-out; 
-    }
-    
-    /* H1 STİLİ GÜNCELLENDİ */
-    #welcome-screen h1 { 
-      margin: 0; 
-      font-size: 3rem; /* Daha belirgin olması için boyut büyütüldü */
-      font-weight: 800; 
-      color: #ffffff; 
-      letter-spacing: 1px; 
-      text-shadow: 0 0 10px rgba(255,255,255,.8); 
-      font-family: 'Takeover', sans-serif; /* YENİ FONT UYGULANDI */
-    }
-    
-    .campaign-text {
-      margin-top: 18px; font-size: 1.3rem; font-weight: 800; color: #FFD54F; letter-spacing: 1px;
-      text-shadow: 0 0 8px #FFD54F, 0 0 14px rgba(255,255,255,.6);
-      padding: 10px 20px;
-      border: 3px solid #FFD54F;
-      border-radius: 8px;
-      background: rgba(0,0,0,.1);
-      animation: neonBlink 1.6s infinite;
-      text-align: center;
-    }
+        .logo {
+            font-family: 'Takeover', 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--orange);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
 
-    @keyframes skate { 0% { transform: translateY(-5px) rotate(-1deg); } 100% { transform: translateY(5px) rotate(1deg); } }
-    @keyframes neonBlink{0%,19%,21%,23%,80%,100%{opacity:1} 20%,22%{opacity:.3} 81%{opacity:.6}}
+        .logo-img { height: 40px; width: auto; }
 
-    .enter-menu-btn {
-      margin-top: 40px;
-      padding: 15px 35px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--turuncu-2);
-      background: #ffffff;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,.3);
-      transition: all .3s ease;
-      text-transform: uppercase;
-    }
-    .enter-menu-btn:hover {
-      background: var(--bg-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,.4);
-    }
-    /* GÜNCEL KAMPANYA/KARŞILAMA EKRANI STİLİ SONU */
+        .nav-btn {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 10px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-btn:hover {
+            background: var(--text-dark);
+            color: var(--white);
+        }
 
-    .menu-container {
-      max-width: 920px; width: 100%;
-      background: rgb(255, 241, 224);
-      padding: 2rem 2.2rem;
-      border-radius: 3px;
-      opacity: 0; transform: translateY(24px);
-      transition: all .8s ease;
-      backdrop-filter: blur(2px);
-    }
-    .menu-container.show{ opacity:1; transform: translateY(0); }
+        /* Header */
+        .menu-header {
+            margin-top: 72px;
+            padding: 60px 24px 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+        }
 
-    .logo-container { text-align:center; margin-bottom: 1.4rem; }
-    .logo-container img { width: 280px;}
+        .menu-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
 
-    h2 {
-      font-size: 2rem; font-weight: 900; text-align:center;
-      color: var(--turuncu-1);
-      padding-bottom: .8rem; margin-top: 2.6rem; margin-bottom: 1.6rem;
-      position: relative; overflow: visible;
-      border-bottom: 3px dashed rgba(255,122,0,.35);
-    }
-    h2 span { display:inline-block; opacity:0; transform: translateY(8px); transition: all .5s ease; }
-    h2 img { position:absolute; left:-110px; top:50%; transform: translateY(-50%); width:80px; z-index:2; }
-    h2.show img { animation: chicken-smooth 2.2s cubic-bezier(.25,1.25,.5,1) forwards; }
-    @keyframes chicken-smooth{0%{left:-110px; transform: translateY(-50%) scale(1)} 70%{left:85%; transform: translateY(-55%) scale(1.06)} 100%{left:85%; transform: translateY(-40%) scale(.9)} }
-    h2.show span { opacity:1; transform: translateY(0); transition-delay: .25s; }
+        .menu-header p {
+            color: var(--text-gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .item{ position:relative; margin-bottom: 1.4rem; padding: .9rem 1rem; border-radius: 14px; background: var(--bg-light);
-      box-shadow: 0 2px 10px rgba(0,0,0,.05);
-      border: 2px solid rgba(255,138,0,.12);
-      overflow:hidden;
-      opacity:0; transform: translateY(20px);
-    }
-    .item::before{
-      content:""; position:absolute; inset:-2px; border-radius: 16px;
-      background: radial-gradient(120px 60px at 10% 0%, rgba(255,200,120,.45), transparent 60%),
-                  radial-gradient(120px 60px at 90% 100%, rgba(255,120,0,.35), transparent 60%);
-      pointer-events:none; opacity:.0; transition: opacity .25s ease;
-    }
-    .item:hover{ transform: translateY(-2px) scale(1.01); box-shadow: 0 10px 24px rgba(255,138,0,.22); border-color: rgba(255,138,0,.35); }
-    .item:hover::before{ opacity:.9 }
-    .item.visible{ opacity:1; transform: translateY(0); }
+        /* Category Nav */
+        .category-nav-wrapper {
+            position: sticky;
+            top: 73px; /* Height of nav + border */
+            z-index: 900;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+        }
 
-    .item-header{ display:flex; justify-content: space-between; align-items:center; gap:.8rem;}
-    .item-title{ font-weight:800; font-size:1.14rem; color:#FF7A00; letter-spacing:.2px; }
+        .category-nav {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            scrollbar-width: none;
+        }
+        .category-nav::-webkit-scrollbar { display: none; }
 
-    .item-price{ font-size:1.08rem; font-weight:900; color:#fff; background: linear-gradient(135deg, var(--turuncu-1), var(--turuncu-2));
-      padding: .35rem .8rem; border-radius: 999px; white-space:nowrap; margin-left:auto;
-      box-shadow: 0 0 10px rgba(255,165,0,.7), 0 0 20px rgba(255,165,0,.55);
-      transform: rotate(-2deg);
-    }
+        .cat-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: var(--white);
+            color: var(--text-gray);
+            border: 1px solid rgba(0,0,0,0.08);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .item-desc{ font-size:.95rem; color:#5b5b5b; margin-top:.35rem; max-width: 90%; }
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--orange);
+            color: var(--white);
+            border-color: var(--orange);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+        }
 
-    .image-container{ margin-top:1.4rem; border-radius:16px; overflow:hidden; box-shadow: 0 12px 28px rgba(0,0,0,.12); }
-    .image-container img{ width:100%; display:block; transition: transform .5s ease; }
-    .image-container:hover img{ transform: scale(1.04); }
+        /* Search Bar */
+        .search-wrapper {
+            padding: 0 24px 20px;
+            background: var(--bg-soft);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-box {
+            position: relative;
+            max-width: 100%;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0,0,0,0.1);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+            background: var(--white);
+        }
+        .search-input:focus {
+            border-color: var(--orange);
+            box-shadow: var(--shadow-md);
+        }
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+        }
 
-    .single-line-item .item-header{ align-items:center; }
+        /* Menu Content */
+        .menu-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
 
-    footer{ margin-top: 3rem; margin-bottom: 100px; padding: 1.6rem 1rem; color:#000000; border-radius: 0 0 18px 18px; text-align:center; }
-    .footer-logo img{ width:170px; margin-bottom:.6rem; filter: drop-shadow(0 0 10px rgba(255,200,120,.5)); }
-    .footer-info div{ margin-bottom:.35rem; }
+        .menu-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 160px;
+        }
 
-    /* 🔥 Özel Kutu Tasarımı */
-    .special-box {
-      background: linear-gradient(135deg, #FF8A00, #FF3D00);
-      color: #fff;
-      border-radius: 16px;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 15px rgba(0,0,0,.2);
-      text-align: center;
-    }
-    .special-box .title {
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: .8rem;
-    }
-    .special-box .content {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .phone-link {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
 
-    .phone-link:hover {
-    color: #ff5e00;
-    cursor: pointer;
-    }
+        .menu-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-    @media (max-width: 560px){
-      body{ padding: 1rem; }
-      .menu-container{ padding: 1.2rem }
-      h2{ font-size: 1.7rem }
-      h2 img{ left:-86px; width:64px }
-    }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 107, 53, 0.2);
+        }
 
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+        }
 
-    #menu-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #FF8A00, #FF3D00);
-  color: #fff;
-  font-size: 1.6rem;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  cursor: pointer;
-  z-index: 10001;
-}
+        .section-hero-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        @media (min-width: 768px) { .section-hero-image { height: 300px; } }
 
-#fullscreen-menu {
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.98);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 10000;
-}
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 16px;
+        }
 
-#fullscreen-menu.active {
-  display: flex;
-  animation: fadeIn .4s ease forwards;
-}
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
 
-#fullscreen-menu .menu-content ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
+        .card-price {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: var(--orange);
+            font-size: 18px;
+            white-space: nowrap;
+        }
 
-#fullscreen-menu .menu-content ul li {
-  margin: 1.2rem 0;
-}
+        .card-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
 
-#fullscreen-menu .menu-content ul li a {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #FF6A00;
-  text-decoration: none;
-}
+        /* Special Cards (Gurme) */
+        .menu-card.gurme {
+            background: #1A1A1A;
+            color: var(--white);
+            border: 1px solid #333;
+        }
+        .menu-card.gurme .card-title { color: var(--white); }
+        .menu-card.gurme .card-desc { color: #999; }
+        .menu-card.gurme .card-price { color: #FFD700; }
+        .gurme-badge {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: #FFD700;
+            color: #000;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        
+        /* General Badge */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            left: -32px;
+            transform: rotate(-45deg);
+            background: var(--orange);
+            color: var(--white);
+            font-weight: 800;
+            font-size: 10px;
+            padding: 6px 40px;
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 120px;
+            text-align: center;
+            border-radius: 0;
+        }
 
-#fullscreen-menu .menu-content ul li a:hover {
-  color: #FF3D00;
-}
+        /* Spacing for text-only cards with badge */
+        .menu-card.has-text-badge .card-header {
+            margin-top: 24px;
+        }
 
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2.5rem;
-  cursor: pointer;
-  color: #FF6A00;
-}
+        /* Bread Selection */
+        .bread-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
 
-.menu-logo {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 2rem;
-  margin-top: 3rem;
-}
+        .bread-option {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-sm);
+        }
 
+        .bread-option:hover, .bread-option.active {
+            border-color: var(--orange);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
 
-  .menu-logo img {
-  width: 200px;
-  max-width: 70%;
-  display: inline-block;
-}
+        .bread-option img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 16px;
+        }
 
-#fullscreen-menu.active + #menu-btn {
-  display: none;
-}
+        .bread-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+        /* Single Line Items (Drinks) */
+        .single-line-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        .single-line-item:hover {
+            transform: translateX(5px);
+            border-left: 4px solid var(--orange);
+        }
 
+        /* Footer (Simplified from index) */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 60px 24px 32px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer-brand {
+            font-family: 'Takeover', 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .social-icon {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        .social-icon:hover { background: var(--orange); }
 
-.footer-social {
-  margin-top: 1.2rem;
-}
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid white;
+            text-decoration: none;
+        }
+        .floating-btn:hover { transform: scale(1.1); }
 
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #E4405F; /* Instagram rengi */
-  font-weight: 700;
-  font-size: 1.1rem;
-}
+        /* Modals */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            justify-content: center; align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+        
+        .modal-box {
+            background: var(--white);
+            width: 100%; max-width: 480px;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.4s ease;
+        }
 
-.footer-social a img {
-  width: 28px;
-  height: 28px;
-  filter: drop-shadow(0 0 6px rgba(228, 64, 95, 0.4));
-  transition: transform 0.3s ease;
-}
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-.footer-social a:hover img {
-  transform: scale(1.15);
-}
+        .modal-close {
+            position: absolute; top: 20px; right: 20px;
+            font-size: 24px; cursor: pointer; color: var(--text-gray);
+            background: none; border: none;
+        }
 
+        .modal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
 
+        .sauce-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
 
+        .sauce-btn {
+            padding: 12px;
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg-soft);
+        }
+        .sauce-btn:hover { border-color: var(--orange); background: var(--white); }
+        .sauce-btn.selected { background: var(--orange); color: var(--white); border-color: var(--orange); }
 
-/* Ekmek Seçim Ekranı Stili */
-    #ekmek-secim-ekrani {
-      display: flex;
-      justify-content: space-around;
-      gap: 15px;
-      margin-bottom: 2rem;
-      padding: 10px;
-      flex-wrap: wrap; /* Mobil uyum için */
-    }
+        /* Preloader */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-soft);
+            z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        #preloader.loaded { opacity: 0; pointer-events: none; }
+        .preloader-gif { width: 150px; }
 
-    .ekmek-secim-kart {
-      flex: 1 1 200px; /* Flex ayarları */
-      max-width: 30%;
-      background: var(--bg-light);
-      border-radius: 16px;
-      padding: 15px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,.08);
-      border: 3px solid transparent;
-    }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 998;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--orange);
+            color: var(--white);
+        }
 
-    .ekmek-secim-kart:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(255,138,0,.2);
-      border-color: var(--turuncu-1);
-    }
+        @media (max-width: 768px) {
+            .menu-header h1 { font-size: 32px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .bread-selection { grid-template-columns: 1fr; }
+            .category-nav { padding: 0 16px; }
+            .modal-box { padding: 24px; }
+        }
 
-    .ekmek-secim-kart img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.1);
-    }
+        /* Product Details Modal Styles */
+        .details-section {
+            background: var(--bg-soft);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .details-header {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+        .details-text {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
 
-    .ekmek-ad {
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--turuncu-2);
-    }
+        /* Matrix Developer Effect */
+        .matrix-dev {
+            color: #00FF41 !important; /* Matrix Green */
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.8);
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00FF41;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
 
-    #ekmek-menuleri h3 {
-      font-size: 1.5rem;
-      color: var(--turuncu-1);
-      text-align: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 10px;
-      border-bottom: 2px solid rgba(255,138,0,.1);
-    }
-
-    
-    /* AVANTAJ MENÜLERİ CSS */
-    .avantaj-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: 600px) {
-      .avantaj-container { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1080px) {
-      .avantaj-container { grid-template-columns: repeat(3, 1fr); }
-    }
-    .avantaj-card {
-      background: #fff;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .avantaj-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255,138,0,.25);
-    }
-    .avantaj-image-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 100%; /* 1:1 Kare Oran */
-      overflow: hidden;
-    }
-    .avantaj-image-wrapper img {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: contain;
-      transition: transform 0.5s ease;
-    }
-    .avantaj-card:hover .avantaj-image-wrapper img { transform: scale(1.08); }
-    
-    .avantaj-price-badge {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: linear-gradient(135deg, #FF8A00, #FF3D00);
-      color: #fff;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      animation: popPrice 1.5s infinite ease-in-out;
-      z-index: 2;
-    }
-    @keyframes popPrice {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.12); }
-    }
-    .avantaj-info { padding: 12px; text-align: center; }
-    .avantaj-title { font-weight: 800; color: var(--turuncu-2); font-size: 1rem; margin-bottom: 4px; line-height: 1.3; }
-    .avantaj-desc { font-size: 0.85rem; color: #666; font-weight: 500; }
-
-    /* POP-UP MODAL STİLİ */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 10002;
-      display: none; justify-content: center; align-items: center;
-      backdrop-filter: blur(4px);
-    }
-    .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
-    .modal-box {
-      background: #fff; width: 90%; max-width: 450px;
-      border-radius: 20px; padding: 25px;
-      position: relative;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-      transform: scale(0.8); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .modal-overlay.active .modal-box { transform: scale(1); opacity: 1; }
-    .modal-close {
-      position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #aaa; line-height: 1;
-    }
-    .modal-title { font-size: 1.4rem; font-weight: 800; color: var(--turuncu-2); margin-bottom: 5px; padding-right: 30px; }
-    .modal-desc { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-    
-    /* Yeni Menü İçeriği Listesi Stili */
-    .modal-menu-list { list-style: none; padding: 0; margin: 0; }
-    .modal-menu-list li { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #FFF7EF; margin-bottom: 8px; border-radius: 10px; font-weight: 600; color: #555; border: 1px solid rgba(255,138,0,0.1); }
-    .modal-menu-list li span { font-size: 1.4rem; }
-
-    .sauce-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-height: 250px; overflow-y: auto; padding: 5px; }
-    .sauce-btn {
-      background: var(--bg-light); border: 2px solid rgba(255,138,0,0.15);
-      padding: 10px; border-radius: 10px; font-weight: 600; color: #444; cursor: pointer; font-size: 0.9rem;
-      transition: all 0.2s ease; text-align: center;
-    }
-    .sauce-btn:hover { background: #fff; border-color: var(--turuncu-1); transform: translateY(-2px); }
-    .sauce-btn.selected { background: var(--turuncu-1); color: #fff; border-color: var(--turuncu-1); box-shadow: 0 4px 10px rgba(255,138,0,0.3); }
-    
-    /* GURME BURGER ÖZEL KART TASARIMI */
-    .gurme-card {
-      background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-      border: 2px solid #FFC107; /* Altın sarısı çerçeve */
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-      position: relative;
-      transform: translateY(0);
-      transition: all 0.3s ease;
-    }
-    .gurme-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-    }
-    .gurme-image-box {
-      width: 100%;
-      height: 240px; /* Görselin oranına göre ayarlandı */
-      overflow: hidden;
-      position: relative;
-    }
-    .gurme-image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gurme-card:hover .gurme-image-box img {
-      transform: scale(1.05);
-    }
-    .gurme-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #FFC107;
-      color: #000;
-      font-weight: 800;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 2;
-      animation: pulseBadge 2s infinite;
-    }
-    @keyframes pulseBadge { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    .gurme-details { padding: 1.2rem; color: #fff; }
-    .gurme-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
-    .gurme-title { font-family: 'Takeover', sans-serif; font-size: 1.6rem; color: #FFC107; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-    .gurme-price { font-size: 1.3rem; font-weight: 900; background: #FF3D00; padding: 5px 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(255, 61, 0, 0.4); }
-    .gurme-desc { font-size: 1rem; color: #ddd; line-height: 1.5; font-weight: 500; }
-
-
-    /* SİPARİŞ BUTONU VE MODAL */
-    #order-floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366; /* WhatsApp yeşili */
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 1.1rem;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-      z-index: 10001;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 2px solid #fff;
-      animation: pulseBtn 2s infinite;
-    }
-    @keyframes pulseBtn { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    #order-floating-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
-      animation: none;
-    }
-    
-    /* Sipariş Modal Butonları */
-    .order-options { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-    .order-option-btn {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 16px; border-radius: 12px; text-decoration: none;
-      font-weight: 700; font-size: 1.1rem; transition: transform 0.2s; color: #fff;
-    }
-    .order-option-btn:hover { transform: scale(1.02); }
-    
-    .btn-whatsapp { background: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
-    .btn-phone { background: var(--turuncu-2); box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3); }
-    .btn-maps { background: #4285F4; box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3); }
-
-
-    @media (max-width: 560px){
-      #ekmek-secim-ekrani { flex-direction: column; align-items: center; }
-      .ekmek-secim-kart { max-width: 80%; }
-    }
-
-  </style>
+        .matrix-dev:hover {
+            background: #00FF41;
+            color: #000 !important;
+            box-shadow: 0 0 15px #00FF41;
+            text-shadow: none;
+            font-weight: 900;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="welcome-screen">
-    <img src="/img/animasyonlu-logo.gif" alt="Tavuklu.tr Animasyonlu Logo - Kaykaylı Tavuk" class="logo-gif"> 
-    
-    <h1>TAVUKLU.</h1> 
-    <p class="campaign-text">HOŞ GELDİNİZ!</p>
-  </div>
-
-  <button id="menu-btn">☰</button>
-
-<div id="fullscreen-menu">
-  <div class="menu-content">
-    <span class="close-btn">&times;</span>
-    <div class="menu-logo">
-      <img src="/img/animasyonlu-logo.gif" alt="Tavuklu.tr Animasyonlu Logo - Kaykaylı Tavuk" class="logo-gif"> 
-    </div>
-    <ul>
-      <li><a href="#ekmek">🥪 Ekmek Arası</a></li>
-      <li><a href="#tabak">🍽️ Tabak</a></li>
-      <li><a href="#burger">🍔 Burger</a></li>
-      <li><a href="#aperatif">🍟 Aperatifler</a></li>
-      <li><a href="#icecek">🥤 İçecekler</a></li>
-      <li><a href="#siparis">🛵 Sipariş Ver</a></li>
-    </ul>
-  </div>
-</div>
-
-
-
-
-
-  <div class="menu-container">
-    <div class="logo-container">
-      <img src="/img/tavuklu.png" alt="Tavuklu.tr Logo - Mustafakemalpaşa">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="../img/animasyonlu-logo.gif" alt="Yükleniyor..." class="preloader-gif">
     </div>
 
-    <h2><span>⭐ EN ÇOK TERCİH EDİLENLER</span></h2>
-    <div id="popular-list"></div>
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../img/tavuklutavuk.png" alt="tavuklu" class="logo-img">
+            <span>tavuklu.tr</span>
+        </a>
+        <a href="../index.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Ana Sayfa</a>
+    </nav>
 
-    <h2><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>🍴BUGÜN NE YESEN?</span></h2>
-    <div class="item" id="randomMenu">
-      <div class="item-header"><span class="item-title">Yükleniyor...</span></div>
-    </div>
-    
-    <h2><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>🔥 AVANTAJ MENÜLERİ</span></h2>
-    <div class="avantaj-container" id="avantaj-list"></div>
-    
-    <h2 id="ekmek"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>EKMEK ARASI</span></h2>
+    <!-- Header -->
+    <header class="menu-header">
+        <h1>Menü & Fiyatlar</h1>
+        <p>Şehrin en iyi lezzetlerini keşfet. Taze, sıcak ve bol soslu.</p>
+    </header>
 
-<div id="ekmek-secim-ekrani">
-  <div class="ekmek-secim-kart" data-menu="tombik">
-    <img src="/img/tombik_ekmek.png" alt="Tombik Ekmek Tavuk Seçimi"> <div class="ekmek-ad">TOMBİK EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
-  </div>
-  <div class="ekmek-secim-kart" data-menu="yarim">
-    <img src="/img/yarim_ekmek.png" alt="Yarım Ekmek Tavuk Seçimi"> <div class="ekmek-ad">YARIM EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
-  </div>
-  <div class="ekmek-secim-kart" data-menu="tam">
-    <img src="/img/tam_ekmek.png" alt="Tam Ekmek Tavuk Seçimi"> <div class="ekmek-ad">TAM EKMEK <div class="item-desc">Çeşitleri görmek için tıklayın.</div></div>
-  </div>
-</div>
-
-<div id="ekmek-menuleri" style="display: none;">
-  <button id="geri-don-btn" class="enter-menu-btn" style="margin-bottom: 20px;">
-    ← EKMEK SEÇİMİNE GERİ DÖN
-  </button>
-  
-  <div id="tombik-menu" class="ekmek-menu-list">
-    <h3>Tombik Ekmek Arası Seçenekleri</h3>
-  </div>
-  
-  <div id="yarim-menu" class="ekmek-menu-list" style="display:none;">
-    <h3>Yarım Ekmek Arası Seçenekleri</h3>
-  </div>
-  
-  <div id="tam-menu" class="ekmek-menu-list" style="display:none;">
-    <h3>Tam Ekmek Arası Seçenekleri</h3>
-  </div>
-</div>
-    
-
-
-
-
-
-
-    <h2 id="tabak"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>TABAK</span></h2>
-    <div class="image-container"><img src="/img/tabak.jpeg" alt="Özel Soslu Tavuklu Tabak Menü - Makarna ve Salata ile"></div>&nbsp;
-    <div id="tabak-list"></div>
-    
-
-    <h2 id="burger"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>BURGER</span></h2>
-    <div class="image-container"><img src="/img/burger2.webp" alt="Tavuklu Burger Menü - Patates Kızartması ile"></div>&nbsp;
-    <div id="burger-list"></div>
-
-    <h2 id="aperatif"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>APERATİFLER</span></h2>
-    <div class="image-container"><img src="/img/citir.webp" alt="Çıtır Tavuk Tabağı ve Patates Kızartması"></div>&nbsp;
-    <div id="aperatif-list"></div>
-    
-
-    <h2 id="icecek"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>İÇECEKLER</span></h2>
-    <div id="icecek-list"></div>
-
-
-    <h2 id="siparis"><img src="/img/tavuklutavuk.png" alt="Tavuklu Maskot"><span>SİPARİŞ & İLETİŞİM</span></h2>
-    <div class="special-box">
-      <div class="title">Hemen Sipariş Ver!</div>
-      <div class="content">
-        <p style="margin-bottom:15px; font-weight:500;">Lezzet kapına gelsin veya gel al! Aşağıdaki butonları kullanarak siparişini oluşturabilirsin.</p>
-        <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
-             <!--<a href="https://wa.me/905313709574?text=Merhaba,%20sipariş%20vermek%20istiyorum." target="_blank" class="enter-menu-btn" style="text-decoration:none; color:var(--turuncu-2); display:inline-block; width:100%; max-width:350px; text-align:center; margin-top:10px;">
-               📱 WhatsApp ile Sipariş
-             </a>-->
-             <a href="tel:+905313709574" class="enter-menu-btn" style="text-decoration:none; color:var(--turuncu-2); display:inline-block; width:100%; max-width:350px; text-align:center; margin-top:0;">
-               📞 Telefon ile Ara
-             </a>
-             <a href="https://www.google.com/maps/search/?api=1&query=Vıraca+Mah.+Benli+Ahmet+Sk.+No:3/A+Mustafakemalpaşa/BURSA" target="_blank" class="enter-menu-btn" style="text-decoration:none; color:var(--turuncu-2); display:inline-block; width:100%; max-width:350px; text-align:center; margin-top:0;">
-               📍 Yol Tarifi Al
-             </a>
+    <!-- Category Navigation -->
+    <div class="category-nav-wrapper">
+        <div class="category-nav">
+            <a href="#popular" class="cat-btn active"><i class="fa-solid fa-star"></i> Popüler</a>
+            <a href="#avantaj" class="cat-btn"><i class="fa-solid fa-fire"></i> Avantaj Menü</a>
+            <a href="#ekmek" class="cat-btn"><i class="fa-solid fa-bread-slice"></i> Ekmek Arası</a>
+            <a href="#tabak" class="cat-btn"><i class="fa-solid fa-utensils"></i> Tabak</a>
+            <a href="#burger" class="cat-btn"><i class="fa-solid fa-burger"></i> Burger</a>
+            <a href="#aperatif" class="cat-btn"><i class="fa-solid fa-drumstick-bite"></i> Aperatif</a>
+            <a href="#icecek" class="cat-btn"><i class="fa-solid fa-glass-water"></i> İçecek</a>
         </div>
-      </div>
     </div>
 
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+        <div class="search-box">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input type="text" class="search-input" id="menuSearch" placeholder="Menüde lezzet ara... (Örn: Köri, Burger)">
+        </div>
+    </div>
+
+    <div class="menu-container">
+        
+        <!-- Popular -->
+        <section id="popular" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-star" style="color: var(--orange);"></i> En Çok Tercih Edilenler</div>
+            <div class="menu-grid" id="popular-list"></div>
+        </section>
+
+        <!-- Avantaj -->
+        <section id="avantaj" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-fire" style="color: var(--orange);"></i> Avantaj Menüleri</div>
+            <div class="menu-grid" id="avantaj-list"></div>
+        </section>
+
+        <!-- Ekmek Arası -->
+        <section id="ekmek" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-bread-slice" style="color: var(--orange);"></i> Ekmek Arası Lezzetler</div>
+            
+            <div class="bread-selection">
+                <div class="bread-option" onclick="selectBread('tombik')">
+                    <img src="../img/tombik_ekmek.png" alt="Tombik">
+                    <div class="bread-title">Tombik Ekmek</div>
+                    <div style="color: var(--orange); font-weight: 800; font-size: 1.2rem; margin-top: 5px;">140₺</div>
+                </div>
+                <div class="bread-option" onclick="selectBread('yarim')">
+                    <img src="../img/yarim_ekmek.png" alt="Yarım">
+                    <div class="bread-title">Yarım Ekmek</div>
+                    <div style="color: var(--orange); font-weight: 800; font-size: 1.2rem; margin-top: 5px;">130₺</div>
+                </div>
+                <div class="bread-option" onclick="selectBread('tam')">
+                    <img src="../img/tam_ekmek.png" alt="Tam">
+                    <div class="bread-title">Tam Ekmek</div>
+                    <div style="color: var(--orange); font-weight: 800; font-size: 1.2rem; margin-top: 5px;">230₺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabak -->
+        <section id="tabak" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-utensils" style="color: var(--orange);"></i> Tabak Menüler</div>
+            <img src="../img/tabak.jpeg" alt="Tavuklu Tabak" class="section-hero-image">
+            <div class="menu-grid" id="tabak-list"></div>
+        </section>
+
+        <!-- Burger -->
+        <section id="burger" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-burger" style="color: var(--orange);"></i> Gurme Burgerler</div>
+            <img src="../img/burger2.webp" alt="Gurme Burger" class="section-hero-image">
+            <div class="menu-grid" id="burger-list"></div>
+        </section>
+
+        <!-- Aperatif -->
+        <section id="aperatif" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-drumstick-bite" style="color: var(--orange);"></i> Aperatifler</div>
+            <img src="../img/citir.webp" alt="Aperatifler" class="section-hero-image">
+            <div class="menu-grid" id="aperatif-list"></div>
+        </section>
+
+        <!-- İçecek -->
+        <section id="icecek" class="menu-section">
+            <div class="section-title"><i class="fa-solid fa-glass-water" style="color: var(--orange);"></i> İçecekler</div>
+            <div class="menu-grid" id="icecek-list"></div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
     <footer>
-      <div class="footer-logo"><img src="/img/tavuklu.png" alt="Tavuklu.tr Footer Logo"></div>
-      <div class="footer-info">
-        <div>📍 Vıraca Mah. Benli Ahmet Sk. No:3/A Mustafakemalpaşa/BURSA</div>
-        <div>(Güvenal ve Makbul Arası)</div>
-        <p>
-            <a href="tel:+905313709574" class="phone-link">+90 531 370 95 74</a>
-        </p>
-      </div>
-
-      <div class="footer-social">
-    <a href="https://www.instagram.com/tavuklu.tr" target="_blank" class="instagram-link">
-      <img src="/img/instagram.png" alt="Tavuklu.tr Instagram Hesabı" />
-      <span>@tavuklu.tr</span>
-    </a>
-  </div>
+        <div class="footer-brand">
+            <img src="../img/tavuklutavuk.png" alt="logo" style="height: 40px;">
+            tavuklu.tr
+        </div>
+        <p style="color: var(--text-light); margin-bottom: 20px;">Vıraca Mah. Benli Ahmet Sk. No:3/A Mustafakemalpaşa/BURSA</p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/tavuklu.tr" target="_blank" class="social-icon">
+                <img src="../img/instagram.png" alt="Instagram" style="width: 20px;"> @tavuklu.tr
+            </a>
+            <a href="tel:+905313709574" class="social-icon">
+                📞 +90 531 370 95 74
+            </a>
+        </div>
+        <p style="margin-top: 30px; font-size: 13px; color: #666;">© 2026 tavuklu.tr</p>
+        <p style="margin-top: 10px; font-size: 13px;">
+                    Geliştirici: <a href="https://aytacunalx.github.io/aytacunal/" target="_blank" class="matrix-dev" data-value="aytacunalx" style="text-decoration: none; font-weight: 600;">aytacunalx</a>
+                </p>
     </footer>
-  </div>
 
-  <!-- SİPARİŞ BUTONU (Floating) -->
-  <div id="order-floating-btn" onclick="openOrderModal()">
-    <span>📞 🛵</span>
-  </div>
+    <!-- Floating Order Button -->
+    <a href="javascript:void(0)" onclick="openOrderModal()" class="floating-btn"><i class="fa-solid fa-phone"></i></a>
 
-  <!-- SİPARİŞ MODALI -->
-  <div id="order-modal" class="modal-overlay">
-    <div class="modal-box">
-      <span class="modal-close" onclick="closeOrderModal()">&times;</span>
-      <div class="modal-title" style="text-align:center;">Sipariş Yöntemi Seçin</div>
-      <div class="modal-desc" style="text-align:center; border:none;">Lezzete ulaşmak için bir yol seçin!</div>
-      
-      <div class="order-options">
-        <!--<a href="https://wa.me/905313709574?text=Merhaba,%20sipariş%20vermek%20istiyorum." target="_blank" class="order-option-btn btn-whatsapp">📱 WhatsApp ile Sipariş</a>-->
-        <a href="tel:+905313709574" class="order-option-btn btn-phone">📞 Telefon ile Ara</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=Vıraca+Mah.+Benli+Ahmet+Sk.+No:3/A+Mustafakemalpaşa/BURSA" target="_blank" class="order-option-btn btn-maps">📍 Yol Tarifi Al</a>
-      </div>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Başa Dön"><i class="fa-solid fa-arrow-up"></i></div>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeOrderModal()">×</button>
+            <div class="modal-title">Sipariş Ver</div>
+            <p style="color: var(--text-gray); margin-bottom: 24px;">Lezzete ulaşmak için bir yöntem seçin:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="tel:+905313709574" class="nav-btn" style="text-align: center; background: var(--orange); color: white; border: none;">
+                    <i class="fa-solid fa-phone"></i> Hemen Ara
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Vıraca+Mah.+Benli+Ahmet+Sk.+No:3/A+Mustafakemalpaşa/BURSA" target="_blank" class="nav-btn" style="text-align: center;">
+                    <i class="fa-solid fa-location-dot"></i> Yol Tarifi Al
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- SOS SEÇİM MODALI -->
-  <div id="sauce-modal" class="modal-overlay">
-    <div class="modal-box">
-      <span class="modal-close" onclick="closeSauceModal()">&times;</span>
-      <div class="modal-title" id="modal-title">Menü Başlığı</div>
-      <div class="modal-desc" id="modal-desc">Menü İçeriği</div>
-      <div style="font-weight:700; margin-bottom:10px; color:var(--turuncu-2);">Lütfen Sos Seçiniz:</div>
-      <div class="sauce-grid" id="sauce-grid">
-        <!-- Soslar JS ile buraya gelecek -->
-      </div>
+    <!-- Sauce Modal -->
+    <div id="sauce-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeSauceModal()">×</button>
+            <div class="modal-title" id="sauce-modal-title"></div>
+            <p id="sauce-modal-desc" style="color: var(--text-gray); font-size: 14px; margin-bottom: 20px;"></p>
+            
+            <div style="font-weight: 700; color: var(--orange);">Sos Seçimi:</div>
+            <div class="sauce-grid" id="sauce-grid"></div>
+        </div>
     </div>
-  </div>
+
+    <!-- Menu List Modal (Ekmek Çeşitleri İçin) -->
+    <div id="menu-list-modal" class="modal-overlay">
+        <div class="modal-box" style="max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeMenuListModal()">×</button>
+            <div class="modal-title" id="menu-list-title"></div>
+            <div class="menu-grid" id="menu-list-grid" style="grid-template-columns: 1fr;"></div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="product-details-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeProductDetailsModal()">×</button>
+            <div class="modal-title" id="details-title"></div>
+            
+            <div id="details-image-wrapper" style="display:none; margin-bottom: 20px; border-radius: 12px; overflow: hidden;">
+                <img id="details-image" src="" alt="" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <p id="details-desc" style="color: var(--text-gray); margin-bottom: 20px; font-size: 15px;"></p>
+            
+            <div class="details-section">
+                <div class="details-header"><i class="fa-solid fa-list-ul" style="color: var(--orange);"></i> İçindekiler</div>
+                <p id="details-ingredients" class="details-text"></p>
+            </div>
+
+            <div class="details-section">
+                <div class="details-header"><i class="fa-solid fa-triangle-exclamation" style="color: var(--orange);"></i> Alerjen Uyarısı</div>
+                <p id="details-allergens" class="details-text"></p>
+            </div>
+            
+            <div style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px;">
+                <div id="details-price" style="font-size: 24px; font-weight: 800; color: var(--orange);"></div>
+                <button onclick="closeProductDetailsModal()" class="nav-btn" style="background: var(--text-dark); color: white; border: none;">Kapat</button>
+            </div>
+        </div>
+    </div>
 
   <script>
     // --- MENÜ VERİLERİ (JSON) ---
     const menuData = {
       popular: [
-        { title: "Tavuklu Ekmek Arası Köri (Tombik)", price: "140₺" },
-        { title: "Tavuklu Tabak Köri", price: "240₺" },
-        { title: "Tavuklu Tabak Barbekü", price: "240₺" },
-        { title: "Tavuklu Tabak Teriyaki", price: "240₺" },
-        { title: "Çıtır Tavuklu Tabağı", price: "180₺" }
+        { title: "Tavuklu Ekmek Arası Köri <i class='fa-solid fa-star' style='color:#FFD700'></i> (Tombik)", price: "140₺", desc: "Köri soslu tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Tabak Köri", price: "240₺", desc: "Köri soslu tavuk, kremalı pesto soslu makarna ve salata" },
+        { title: "Tavuklu Tabak Barbekü", price: "240₺", desc: "Barbekü soslu tavuk, kremalı pesto soslu makarna ve salata" },
+        { title: "Tavuklu Tabak Teriyaki", price: "240₺", desc: "Teriyaki soslu tavuk, kremalı pesto soslu makarna ve salata" },
+        { title: "Çıtır Tavuklu Tabağı", price: "180₺", desc: "100 gram çıtır tavuk ve patates kızartması" }
       ],
       avantaj: [
-        { title: "Avantaj Tabak Menü 1", desc: "Tavuklu Tabak + Patates + Kutu İçecekler", price: "350₺", img: "/img/tabak-cola.png", alt: "Avantaj Tabak Menü 1 - Tavuklu Tabak, Patates ve Kola" },
-        { title: "Avantaj Tabak Menü 2", desc: "Tavuklu Tabak + Patates + Uludağ Gazoz", price: "320₺", img: "/img/tabak-gazoz.png", alt: "Avantaj Tabak Menü 2 - Tavuklu Tabak, Patates ve Gazoz" },
-        { title: "Avantaj Tabak Menü 3", desc: "Tavuklu Tabak + Patates + Ayran", price: "320₺", img: "/img/tabak-ayran.png", alt: "Avantaj Tabak Menü 3 - Tavuklu Tabak, Patates ve Ayran" },
-        { title: "Avantaj Tam Ekmek Menü 1", desc: "Tam Ekmek Tavuklu + Patates + Ayran", price: "320₺", img: "/img/tam-ayran.png", alt: "Avantaj Tam Ekmek Menü 1 - Tavuklu Ekmek, Patates ve Ayran" },
-        { title: "Avantaj Tam Ekmek Menü 2", desc: "Tam Ekmek Tavuklu + Patates + Kutu İçecekler", price: "350₺", img: "/img/tam-cola.png", alt: "Avantaj Tam Ekmek Menü 2 - Tavuklu Ekmek, Patates ve Kola" },
-        { title: "Avantaj Tam Ekmek Menü 3", desc: "Tam Ekmek Tavuklu + Patates + Uludağ Gazoz", price: "320₺", img: "/img/tam-gazoz.png", alt: "Avantaj Tam Ekmek Menü 3 - Tavuklu Ekmek, Patates ve Gazoz" },
-        { title: "Avantaj Tombik Ekmek Menü 1", desc: "Tombik Ekmek Tavuklu + Patates + Ayran", price: "230₺", img: "/img/tombik-ayran.png", alt: "Avantaj Tombik Ekmek Menü 1 - Tavuklu Tombik, Patates ve Ayran" },
-        { title: "Avantaj Tombik Ekmek Menü 2", desc: "Tombik Ekmek Tavuklu + Patates + Kutu İçecekler", price: "250₺", img: "/img/tombik-cola.png", alt: "Avantaj Tombik Ekmek Menü 2 - Tavuklu Tombik, Patates ve Kola" },
-        { title: "Avantaj Tombik Ekmek Menü 3", desc: "Tombik Ekmek Tavuklu + Patates + Uludağ Gazoz", price: "230₺", img: "/img/tombik-gazoz.png", alt: "Avantaj Tombik Ekmek Menü 3 - Tavuklu Tombik, Patates ve Gazoz" }
+        { title: "Avantaj Tabak Menü 1", desc: "Tavuklu Tabak + Patates + Kutu İçecekler", price: "350₺", img: "../img/tabak-cola.png", alt: "Avantaj Tabak Menü 1 - Tavuklu Tabak, Patates ve Kola" },
+        { title: "Avantaj Tabak Menü 2", desc: "Tavuklu Tabak + Patates + Uludağ Gazoz", price: "320₺", img: "../img/tabak-gazoz.png", alt: "Avantaj Tabak Menü 2 - Tavuklu Tabak, Patates ve Gazoz" },
+        { title: "Avantaj Tabak Menü 3", desc: "Tavuklu Tabak + Patates + Ayran", price: "320₺", img: "../img/tabak-ayran.png", alt: "Avantaj Tabak Menü 3 - Tavuklu Tabak, Patates ve Ayran" },
+        { title: "Avantaj Tam Ekmek Menü 1", desc: "Tam Ekmek Tavuklu + Patates + Ayran", price: "320₺", img: "../img/tam-ayran.png", alt: "Avantaj Tam Ekmek Menü 1 - Tavuklu Ekmek, Patates ve Ayran" },
+        { title: "Avantaj Tam Ekmek Menü 2", desc: "Tam Ekmek Tavuklu + Patates + Kutu İçecekler", price: "350₺", img: "../img/tam-cola.png", alt: "Avantaj Tam Ekmek Menü 2 - Tavuklu Ekmek, Patates ve Kola" },
+        { title: "Avantaj Tam Ekmek Menü 3", desc: "Tam Ekmek Tavuklu + Patates + Uludağ Gazoz", price: "320₺", img: "../img/tam-gazoz.png", alt: "Avantaj Tam Ekmek Menü 3 - Tavuklu Ekmek, Patates ve Gazoz" },
+        { title: "Avantaj Tombik Ekmek Menü 1", desc: "Tombik Ekmek Tavuklu + Patates + Ayran", price: "230₺", img: "../img/tombik-ayran.png", alt: "Avantaj Tombik Ekmek Menü 1 - Tavuklu Tombik, Patates ve Ayran" },
+        { title: "Avantaj Tombik Ekmek Menü 2", desc: "Tombik Ekmek Tavuklu + Patates + Kutu İçecekler", price: "250₺", img: "../img/tombik-cola.png", alt: "Avantaj Tombik Ekmek Menü 2 - Tavuklu Tombik, Patates ve Kola" },
+        { title: "Avantaj Tombik Ekmek Menü 3", desc: "Tombik Ekmek Tavuklu + Patates + Uludağ Gazoz", price: "230₺", img: "../img/tombik-gazoz.png", alt: "Avantaj Tombik Ekmek Menü 3 - Tavuklu Tombik, Patates ve Gazoz" }
       ],
       ekmek_tombik: [
-        { title: "Tavuklu Köri ⭐ (Tombik)", price: "140₺", desc: "Köri soslu tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Köri <i class='fa-solid fa-star' style='color:#FFD700'></i> (Tombik)", price: "140₺", desc: "Köri soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Teriyaki (Tombik)", price: "140₺", desc: "Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan" },
         { title: "Tavuklu Barbekü (Tombik)", price: "140₺", desc: "Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Soya (Tombik)", price: "140₺", desc: "Soya soslu tavuk, marul, domates, turşu, karamelize soğan." },
-        { title: "Tavuklu Acılı 🔥 (Tombik)", price: "140₺", desc: "Acı soslu tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Acılı <i class='fa-solid fa-fire' style='color:#FF3D00'></i> (Tombik)", price: "140₺", desc: "Acı soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Çıtır (Tombik)", price: "140₺", desc: "Çıtır tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Klasik (Tombik)", price: "140₺", desc: "Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Tatlı Ekşi (Tombik)", price: "140₺", desc: "Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan." },
@@ -806,11 +859,11 @@
         { title: "Dağ Kekikli ve Kremalı (Tombik)", price: "140₺", desc: "Dağ Kekikli ve Kremalı tavuk, marul, domates, turşu, karamelize soğan." }
       ],
       ekmek_yarim: [
-        { title: "Tavuklu Köri ⭐ (Yarım)", price: "130₺", desc: "Köri soslu tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Köri <i class='fa-solid fa-star' style='color:#FFD700'></i> (Yarım)", price: "130₺", desc: "Köri soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Teriyaki (Yarım)", price: "130₺", desc: "Teriyaki soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Barbekü (Yarım)", price: "130₺", desc: "Barbekü soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Soya (Yarım)", price: "130₺", desc: "Soya soslu tavuk, marul, domates, turşu, karamelize soğan." },
-        { title: "Tavuklu Acılı 🔥 (Yarım)", price: "130₺", desc: "Acı soslu tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Acılı <i class='fa-solid fa-fire' style='color:#FF3D00'></i> (Yarım)", price: "130₺", desc: "Acı soslu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Çıtır (Yarım)", price: "130₺", desc: "Çıtır tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Klasik (Yarım)", price: "130₺", desc: "Sade özel marinasyonlu tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Tatlı Ekşi (Yarım)", price: "130₺", desc: "Tatlı ekşi soslu tavuk, marul, domates, turşu, karamelize soğan." },
@@ -820,11 +873,11 @@
         { title: "Dağ Kekikli ve Kremalı (Yarım)", price: "130₺", desc: "Dağ Kekikli ve Kremalı tavuk, marul, domates, turşu, karamelize soğan." }
       ],
       ekmek_tam: [
-        { title: "Tavuklu Köri ⭐ (Tam)", price: "230₺", desc: "Köri soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Köri <i class='fa-solid fa-star' style='color:#FFD700'></i> (Tam)", price: "230₺", desc: "Köri soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Teriyaki (Tam)", price: "230₺", desc: "Teriyaki soslu 200 gr.  tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Barbekü (Tam)", price: "230₺", desc: "Barbekü soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Soya (Tam)", price: "230₺", desc: "Soya soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
-        { title: "Tavuklu Acılı 🔥 (Tam)", price: "230₺", desc: "Acı soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
+        { title: "Tavuklu Acılı <i class='fa-solid fa-fire' style='color:#FF3D00'></i> (Tam)", price: "230₺", desc: "Acı soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Çıtır (Tam)", price: "230₺", desc: "Çıtır 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Klasik (Tam)", price: "230₺", desc: "Sade özel marinasyonlu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
         { title: "Tavuklu Tatlı Ekşi (Tam)", price: "230₺", desc: "Tatlı ekşi soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan." },
@@ -834,12 +887,12 @@
         { title: "Dağ Kekikli ve Kremalı (Tam)", price: "230₺", desc: "Dağ Kekikli ve Kremalı 200 gr.  tavuk, marul, domates, turşu, karamelize soğan." }
       ],
       tabak: [
-        { title: "Tavuklu Tabak Kremalı Mantarlı ve Peynirli 🍄🧀", price: "270₺", desc: "Kremalı Mantarlı tavuk, tavuğun üzerinde kelle peyniri, kremalı pesto soslu makarna ve salata" },
-        { title: "Tavuklu Tabak Köri⭐", price: "240₺", desc: "Köri soslu tavuk, kremalı pesto soslu makarna ve salata" },
+        { title: "Tavuklu Tabak Kremalı Mantarlı ve Peynirli <i class='fa-solid fa-cheese' style='color:#FFD700'></i>", price: "270₺", desc: "Kremalı Mantarlı tavuk, tavuğun üzerinde kelle peyniri, kremalı pesto soslu makarna ve salata" },
+        { title: "Tavuklu Tabak Köri <i class='fa-solid fa-star' style='color:#FFD700'></i>", price: "240₺", desc: "Köri soslu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Teriyaki", price: "240₺", desc: "Teriyaki soslu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Barbekü", price: "240₺", desc: "Barbekü soslu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Soya", price: "240₺", desc: "Soya soslu tavuk, kremalı pesto soslu makarna ve salata" },
-        { title: "Tavuklu Tabak Acılı 🔥", price: "240₺", desc: "Acı soslu tavuk, kremalı pesto soslu makarna ve salata" },
+        { title: "Tavuklu Tabak Acılı <i class='fa-solid fa-fire' style='color:#FF3D00'></i>", price: "240₺", desc: "Acı soslu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Klasik", price: "240₺", desc: "Sade özel marinasyonlu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Tatlı Ekşi", price: "240₺", desc: "Tatlı Ekşi soslu tavuk, kremalı pesto soslu makarna ve salata" },
         { title: "Tavuklu Tabak Mexican", price: "240₺", desc: "Mexican soslu tavuk, kremalı pesto soslu makarna ve salata" },
@@ -851,278 +904,285 @@
         { title: "Tavuklu Burger", price: "230₺", desc: "Tavuklu burger, marul, domates, karamelize soğan, turşu, burger sos ve barbekü sos" },
         { title: "Tavuklu Cheddar Burger", price: "250₺", desc: "Tavuklu burger, marul, domates, karamelize soğan, turşu, burger sos, barbekü sos ve cheddar sosu" },
         { title: "Tavuklu Trüflü Mayonezli Burger", price: "250₺", desc: "Tavuklu burger, marul, domates, karamelize soğan, turşu ve trüflü mayonez" },
-        { type: "gurme", title: "Tavuklu Gurme Burger", price: "260₺", desc: "İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir final! Tavuklu Gurme Burger, ezber bozmaya geldi.", img: "/img/gurme-burger.png", alt: "Tavuklu Gurme Burger - Kelle Peyniri ve Sweet Chili Soslu", badge: "YENİ & ÖZEL" }
+        { type: "gurme", title: "Tavuklu Gurme Burger", price: "260₺", desc: "İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir final! Tavuklu Gurme Burger, ezber bozmaya geldi.", img: "../img/gurme-burger.png", alt: "Tavuklu Gurme Burger - Kelle Peyniri ve Sweet Chili Soslu", badge: "YENİ & ÖZEL" }
       ],
       aperatif: [
         { title: "Çıtır Tavuklu Tabağı", price: "180₺", desc: "100 gram çıtır tavuk ve patates kızartması" },
-        { title: "Patates Kızartması", price: "85₺", isSingleLine: true }
+        { title: "Patates Kızartması", price: "85₺", desc: "Baharatlı parmak patates" }
       ],
       icecek: [
-        { title: "Kutu Kola", price: "70₺", isSingleLine: true },
-        { title: "Coca-Cola Zero", price: "70₺", isSingleLine: true },
-        { title: "Şişe Kola", price: "50₺", isSingleLine: true },
-        { title: "Kutu Fanta", price: "70₺", isSingleLine: true },
-        { title: "Şişe Fanta", price: "50₺", isSingleLine: true },
-        { title: "Kutu Sprite", price: "70₺", isSingleLine: true },
-        { title: "Kutu Fuse Tea", price: "70₺", isSingleLine: true },
-        { title: "Küçük Eker Ayran 170ml", price: "20₺", isSingleLine: true },
-        { title: "Tombul Eker Ayran 293ml", price: "45₺", isSingleLine: true },
-        { title: "Su", price: "15₺", isSingleLine: true },
-        { title: "Maden Suyu", price: "20₺", isSingleLine: true }
+        { title: "Kutu Kola", price: "70₺" },
+        { title: "Coca-Cola Zero", price: "70₺" },
+        { title: "Şişe Kola", price: "50₺" },
+        { title: "Kutu Fanta", price: "70₺" },
+        { title: "Şişe Fanta", price: "50₺" },
+        { title: "Kutu Sprite", price: "70₺" },
+        { title: "Kutu Fuse Tea", price: "70₺" },
+        { title: "Küçük Eker Ayran 170ml", price: "20₺" },
+        { title: "Tombul Eker Ayran 293ml", price: "45₺" },
+        { title: "Su", price: "15₺" },
+        { title: "Maden Suyu", price: "20₺" }
       ]
     };
 
-    // --- HTML RENDER FONKSİYONLARI ---
-    function renderMenu() {
-      // Standart Liste Render Fonksiyonu
-      const renderList = (containerId, items) => {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        
-        container.innerHTML = items.map(item => {
-          // Gurme Burger Özel Kartı
-          if (item.type === 'gurme') {
+    const sauces = ["Köri", "Barbekü", "Acılı", "Teriyaki", "Soya", "Mexican", "Ballı Hardal", "Sweet Chili", "Kremalı Dağ Kekikli", "Tatlı Ekşi", "Kremalı Mantarlı ve Peynirli", "Klasik"];
+
+    // Render Functions
+    function renderCard(item, category, index, enableSauce) {
+        const clickAttr = enableSauce ? `onclick="openSauceModal('${item.title.replace(/'/g, "\\'")}', '${(item.desc || '').replace(/'/g, "\\'")}')"` : `onclick="openProductDetails('${category}', ${index})"`;
+        const styleAttr = 'style="cursor: pointer;"';
+
+        if (item.type === 'gurme') {
             return `
-              <div class="gurme-card">
-                <div class="gurme-badge">${item.badge}</div>
-                <div class="gurme-image-box"><img src="${item.img}" alt="${item.alt}"></div>
-                <div class="gurme-details">
-                  <div class="gurme-header"><span class="gurme-title">${item.title}</span><span class="gurme-price">${item.price}</span></div>
-                  <div class="gurme-desc">${item.desc}</div>
+                <div class="menu-card gurme" ${clickAttr} ${styleAttr}>
+                    ${item.badge ? `<div class="gurme-badge">${item.badge}</div>` : ''}
+                    ${item.img ? `<img src="${item.img}" class="card-image" alt="${item.title}">` : ''}
+                    <div class="card-header">
+                        <div class="card-title">${item.title}</div>
+                        <div class="card-price">${item.price}</div>
+                    </div>
+                    <div class="card-desc">${item.desc}</div>
                 </div>
-              </div>`;
-          }
-          
-          // Tek Satırlık Ürünler (İçecekler vb.)
-          if (item.isSingleLine) {
-            return `<div class="item single-line-item"><div class="item-header"><span class="item-title">${item.title}</span><span class="item-price">${item.price}</span></div></div>`;
-          }
-
-          // Standart Ürünler
-          return `
-            <div class="item">
-              <div class="item-header"><span class="item-title">${item.title}</span><span class="item-price">${item.price}</span></div>
-              ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
-            </div>`;
-        }).join('');
-      };
-
-      // Avantaj Menüleri Render Fonksiyonu
-      const renderAvantaj = () => {
-        const container = document.getElementById('avantaj-list');
-        if (!container) return;
-
-        container.innerHTML = menuData.avantaj.map(item => `
-          <div class="avantaj-card" onclick="openSauceModal('${item.title}', '${item.desc}', '${item.price}')">
-            <div class="avantaj-image-wrapper">
-              <img src="${item.img}" alt="${item.alt}">
-              <div class="avantaj-price-badge">${item.price}</div>
+            `;
+        }
+        if (item.img) { // Avantaj menus
+            return `
+                <div class="menu-card" ${clickAttr} ${styleAttr}>
+                    ${item.badge ? `<div class="card-badge">${item.badge}</div>` : ''}
+                    <img src="${item.img}" class="card-image" alt="${item.title}">
+                    <div class="card-header">
+                        <div class="card-title">${item.title}</div>
+                        <div class="card-price">${item.price}</div>
+                    </div>
+                    <div class="card-desc">${item.desc}</div>
+                </div>
+            `;
+        }
+        // Standart items (İçecekler, Tabaklar vb.)
+        const extraClass = item.badge ? ' has-text-badge' : '';
+        return `
+            <div class="menu-card${extraClass}" ${clickAttr} ${styleAttr}>
+                ${item.badge ? `<div class="card-badge">${item.badge}</div>` : ''}
+                <div class="card-header">
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-price">${item.price}</div>
+                </div>
+                ${item.desc ? `<div class="card-desc">${item.desc}</div>` : ''}
             </div>
-            <div class="avantaj-info">
-              <div class="avantaj-title">${item.title}</div>
-              <div class="avantaj-desc">${item.desc}</div>
-            </div>
-          </div>
-        `).join('');
-      };
-
-      // Tüm listeleri oluştur
-      renderList('popular-list', menuData.popular);
-      renderAvantaj();
-      renderList('tombik-menu', menuData.ekmek_tombik);
-      renderList('yarim-menu', menuData.ekmek_yarim);
-      renderList('tam-menu', menuData.ekmek_tam);
-      renderList('tabak-list', menuData.tabak);
-      renderList('burger-list', menuData.burger);
-      renderList('aperatif-list', menuData.aperatif);
-      renderList('icecek-list', menuData.icecek);
-      
-      // Ekmek arası başlıklarını tekrar ekle (Render sırasında silindiği için)
-      document.getElementById('tombik-menu').insertAdjacentHTML('afterbegin', '<h3>Tombik Ekmek Arası Seçenekleri</h3>');
-      document.getElementById('yarim-menu').insertAdjacentHTML('afterbegin', '<h3>Yarım Ekmek Arası Seçenekleri</h3>');
-      document.getElementById('tam-menu').insertAdjacentHTML('afterbegin', '<h3>Tam Ekmek Arası Seçenekleri</h3>');
+        `;
     }
 
-    // Karşılama Ekranı ve Menü Giriş Fonksiyonu
-    document.addEventListener('DOMContentLoaded', () => {
-      renderMenu(); // Menüyü oluştur
-
-      const welcomeScreen = document.getElementById('welcome-screen');
-      const menu = document.querySelector('.menu-container');
-
-      setTimeout(() => {
-        // Karşılama ekranını gizle (CSS geçişi ile)
-        welcomeScreen.classList.add('hidden');
-        
-        // Menüyü göster
-        setTimeout(() => {
-          menu.classList.add('show');
-          
-          // Başlık animasyonlarını başlat
-          document.querySelectorAll('h2').forEach((h2, i) => {
-            setTimeout(() => h2.classList.add('show'), i * 300); 
-          });
-
-          // Tüm menü öğelerini görünür yap
-          document.querySelectorAll('.item').forEach(it => it.classList.add('visible'));
-
-        }, 500); 
-
-        // Karşılama ekranını tamamen DOM'dan kaldır (isteğe bağlı, performans için)
-        setTimeout(() => {
-            welcomeScreen.style.display = 'none';
-        }, 1300);
-      }, 2000);
-
-      // Rastgele Menü Kodları
-      const ekmek = ["Tavuklu Ekmek Arası Teriyaki","Tavuklu Ekmek Arası Dağ Kekikli ve Kremalı","Tavuklu Ekmek Arası Barbekü","Tavuklu Ekmek Arası Soya","Tavuklu Ekmek Arası Köri","Tavuklu Ekmek Arası Acılı","Tavuklu Ekmek Arası Çıtır","Tavuklu Ekmek Arası Klasik","Tavuklu Ekmek Arası Tatlı Ekşi","Tavuklu Ekmek Arası Mexican","Tavuklu Ekmek Arası Ballı Hardal","Tavuklu Ekmek Arası Sweet Chili"];
-      const tabak = ["Tavuklu Tabak Teriyaki","Tavuklu Tabak Dağ Kekikli ve Kremalı","Tavuklu Tabak Barbekü","Tavuklu Tabak Soya","Tavuklu Tabak Köri","Tavuklu Tabak Acılı","Tavuklu Tabak Klasik","Tavuklu Tabak Tatlı Ekşi","Tavuklu Tabak Mexican","Tavuklu Tabak Ballı Hardal","Tavuklu Tabak Sweet Chili"];
-      const burger = ["Tavuklu Burger","Tavuklu Cheddar Burger","Tavuklu Trüflü Mayonezli Burger"];
-      const aperatif = ["Çıtır Tavuklu Tabağı","Patates Kızartması"];
-      const icecek = ["Kutu Kola","Şişe Kola","Kutu Fanta","Şişe Fanta","Kutu Sprite","Kutu Fuse Tea","Küçük Eker Ayran","Tombul Eker Ayran","Su","Maden Suyu"];
-
-      function pick(arr){ return arr[Math.floor(Math.random()*arr.length)] }
-
-      function todayMenu(){
-        let secim;
-        const rnd = Math.random();
-        if(rnd < 0.5){ secim = pick(ekmek); }
-        else if(rnd < 0.8){ secim = pick(tabak); }
-        else{ secim = pick(burger); }
-
-        let icecekSecim = pick(icecek);
-        let aperatifSecim = Math.random() < 0.5 ? " + " + pick(aperatif) : "";
-
-        return secim + " + " + icecekSecim + aperatifSecim;
-      }
-
-      document.querySelector("#randomMenu .item-title").innerText = todayMenu();
-    });
-
-
-    // Tam Ekran Menü ve Buton Kodları
-    const menuBtn = document.getElementById('menu-btn');
-    const fullscreenMenu = document.getElementById('fullscreen-menu');
-    const closeBtn = document.querySelector('.close-btn');
-
-    menuBtn.addEventListener('click', () => {
-      fullscreenMenu.classList.add('active');
-      menuBtn.style.display = "none";
-    });
-
-    closeBtn.addEventListener('click', () => {
-      fullscreenMenu.classList.remove('active');
-      menuBtn.style.display = "block";
-    });
-
-    document.querySelectorAll('#fullscreen-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        fullscreenMenu.classList.remove('active');
-        menuBtn.style.display = "block";
-      });
-    });
-
-
-// Ekmek Arası Menü Geçişi Kodları
-    const ekmekSecimEkrani = document.getElementById('ekmek-secim-ekrani');
-    const ekmekMenuleriContainer = document.getElementById('ekmek-menuleri');
-    const geriDonBtn = document.getElementById('geri-don-btn');
-    const ekmekSecimKartlari = document.querySelectorAll('.ekmek-secim-kart');
-    const ekmekMenuLists = document.querySelectorAll('.ekmek-menu-list');
-
-    // Tüm menüleri gizler
-    function gizleTumMenuleri() {
-      ekmekMenuLists.forEach(list => list.style.display = 'none');
+    function renderSection(containerId, categoryKey, enableSauce = false) {
+        const container = document.getElementById(containerId);
+        const items = menuData[categoryKey];
+        if(container && items) {
+            container.innerHTML = items.map((item, index) => renderCard(item, categoryKey, index, enableSauce)).join('');
+        }
     }
 
-    // Kartlara tıklama olayını ekler
-    ekmekSecimKartlari.forEach(kart => {
-      kart.addEventListener('click', function() {
-        const menuId = this.getAttribute('data-menu'); // 'tombik', 'yarim' veya 'tam'
-        
-        ekmekSecimEkrani.style.display = 'none'; // Seçim ekranını gizle
-        ekmekMenuleriContainer.style.display = 'block'; // Menü container'ı göster
-
-        gizleTumMenuleri(); // Önceki açık menüyü gizle
-        document.getElementById(menuId + '-menu').style.display = 'block'; // İlgili menüyü göster
-      });
-    });
-
-    // Geri Dön butonuna tıklama olayını ekler
-    geriDonBtn.addEventListener('click', function() {
-      ekmekMenuleriContainer.style.display = 'none'; // Menü container'ı gizle
-      ekmekSecimEkrani.style.display = 'flex'; // Seçim ekranını göster
-      gizleTumMenuleri(); // Açık kalmış menüyü gizle
-    });
-    
-    // --- AVANTAJ MENÜ POPUP KODLARI ---
-    const sauces = [
-      "Dağ Kekikli ve Kremalı", "Teriyaki", "Barbekü", "Soya", "Köri", 
-      "Acılı", "Klasik", "Tatlı Ekşi", "Mexican", "Ballı Hardal", "Sweet Chili"
-    ];
-    
-    let currentMenu = "";
-    let currentPrice = "";
-    let selectedSauce = "";
-
-    function openSauceModal(title, desc, price) {
-      currentMenu = title;
-      currentPrice = price;
-      selectedSauce = ""; // Sıfırla
-      
-      document.getElementById('modal-title').innerText = title + " (" + price + ")";
-      
-      // Menü içeriğini parçalayıp güzel bir liste haline getiriyoruz
-      const items = desc.split(' + ');
-      let htmlContent = '<ul class="modal-menu-list">';
-      items.forEach(item => {
-        let icon = '🍗'; // Varsayılan ikon (Ana yemek)
-        if(item.includes('Patates')) icon = '🍟';
-        if(item.includes('İçecek')) icon = '🥤';
-        if(item.includes('Ekmek') || item.includes('Burger')) icon = '🥪';
-        
-        htmlContent += `<li><span>${icon}</span> ${item}</li>`;
-      });
-      htmlContent += '</ul>';
-      document.getElementById('modal-desc').innerHTML = htmlContent;
-      
-      const grid = document.getElementById('sauce-grid');
-      grid.innerHTML = '';
-      
-      sauces.forEach(sauce => {
-        const btn = document.createElement('div');
-        btn.className = 'sauce-btn';
-        btn.innerText = sauce;
-        btn.onclick = () => {
-          document.querySelectorAll('.sauce-btn').forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          selectedSauce = sauce;
+    function selectBread(type) {
+        const listId = 'ekmek_' + type;
+        const titleMap = {
+            'tombik': 'Tombik Ekmek Çeşitleri',
+            'yarim': 'Yarım Ekmek Çeşitleri',
+            'tam': 'Tam Ekmek Çeşitleri'
         };
-        grid.appendChild(btn);
-      });
-      
-      document.getElementById('sauce-modal').classList.add('active');
+
+        document.getElementById('menu-list-title').innerText = titleMap[type];
+        renderSection('menu-list-grid', listId, false);
+        document.getElementById('menu-list-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
-    
+
+    function renderMenu() {
+        renderSection('popular-list', 'popular', false);
+        renderSection('avantaj-list', 'avantaj', true);
+        renderSection('tabak-list', 'tabak', false);
+        renderSection('burger-list', 'burger', false);
+        renderSection('aperatif-list', 'aperatif', false);
+        renderSection('icecek-list', 'icecek', false);
+    }
+
+    // --- MODAL FONKSİYONLARI ---
+    function openSauceModal(title, desc) {
+        // Eğer açıklama yoksa veya boşsa modal açma (örn: içecekler)
+        if(!desc && !title.includes('Burger') && !title.includes('Tabak')) return;
+
+        document.getElementById('sauce-modal-title').innerText = title;
+        document.getElementById('sauce-modal-desc').innerText = desc || '';
+        
+        const grid = document.getElementById('sauce-grid');
+        grid.innerHTML = sauces.map(sauce => 
+            `<div class="sauce-btn" onclick="document.querySelectorAll('.sauce-btn').forEach(btn => btn.classList.remove('selected')); this.classList.add('selected');">${sauce}</div>`
+        ).join('');
+        
+        document.getElementById('sauce-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
     function closeSauceModal() {
-      document.getElementById('sauce-modal').classList.remove('active');
+        document.getElementById('sauce-modal').classList.remove('active');
+        document.body.style.overflow = '';
     }
-    
+
+    function openOrderModal() {
+        document.getElementById('order-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeOrderModal() {
+        document.getElementById('order-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function closeMenuListModal() {
+        document.getElementById('menu-list-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openProductDetails(category, index) {
+        const item = menuData[category][index];
+        
+        document.getElementById('details-title').innerHTML = item.title;
+        document.getElementById('details-desc').innerText = item.desc || '';
+        document.getElementById('details-price').innerText = item.price;
+        
+        const imgWrapper = document.getElementById('details-image-wrapper');
+        const imgEl = document.getElementById('details-image');
+        
+        if(item.img) {
+            imgEl.src = item.img;
+            imgWrapper.style.display = 'block';
+        } else {
+            imgWrapper.style.display = 'none';
+        }
+
+        // Varsayılan metinler (Eğer JSON'da yoksa)
+        const defaultIngredients = "Özel marinasyonlu tavuk, taze yeşillikler, özel soslar. Detaylı bilgi için lütfen personelimize danışınız.";
+        const defaultAllergens = "Gluten, Yumurta, Süt ürünleri içerebilir. Detaylı bilgi için lütfen personelimize danışınız.";
+
+        const ingredientsEl = document.getElementById('details-ingredients');
+        const allergensEl = document.getElementById('details-allergens');
+
+        if (category === 'icecek') {
+            ingredientsEl.parentElement.style.display = 'none';
+            allergensEl.parentElement.style.display = 'none';
+        } else {
+            ingredientsEl.parentElement.style.display = 'block';
+            allergensEl.parentElement.style.display = 'block';
+            ingredientsEl.innerText = item.ingredients || defaultIngredients;
+            allergensEl.innerText = item.allergens || defaultAllergens;
+        }
+
+        document.getElementById('product-details-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductDetailsModal() {
+        document.getElementById('product-details-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
     // Modal dışına tıklayınca kapatma
-    document.getElementById('sauce-modal').addEventListener('click', (e) => {
-      if(e.target.id === 'sauce-modal') closeSauceModal();
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            event.target.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // --- BAŞLATMA VE PRELOADER ---
+    window.addEventListener('load', () => {
+        renderMenu(); // İçeriği oluştur
+        
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+            preloader.classList.add('loaded'); // Preloader'ı gizle
+        }, 800);
+
+        // Back to Top Visibility
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('menuSearch');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.menu-card');
+            const sections = document.querySelectorAll('.menu-section');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').innerText.toLowerCase();
+                const desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').innerText.toLowerCase() : '';
+                
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide empty sections
+            sections.forEach(section => {
+                const visibleCards = Array.from(section.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none');
+                section.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+        });
+
+        // Scroll Spy for Category Nav
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.menu-section');
+            const navLinks = document.querySelectorAll('.cat-btn');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 180) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                    // Scroll nav into view
+                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            });
+        });
     });
 
-    // --- SİPARİŞ MODAL KODLARI ---
-    function openOrderModal() {
-      document.getElementById('order-modal').classList.add('active');
-    }
-    function closeOrderModal() {
-      document.getElementById('order-modal').classList.remove('active');
-    }
-    document.getElementById('order-modal').addEventListener('click', (e) => {
-      if(e.target.id === 'order-modal') closeOrderModal();
-    });
+
+    // Matrix Developer Name Effect
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*";
+        const devLink = document.querySelector('.matrix-dev');
+
+        if(devLink) {
+            devLink.addEventListener('mouseover', event => {
+                let iterations = 0;
+                const interval = setInterval(() => {
+                    event.target.innerText = event.target.innerText.split('')
+                        .map((letter, index) => {
+                            if(index < iterations) {
+                                return event.target.dataset.value[index];
+                            }
+                            return letters[Math.floor(Math.random() * 26)];
+                        })
+                        .join('');
+                    
+                    if(iterations >= event.target.dataset.value.length) clearInterval(interval);
+                    
+                    iterations += 1 / 3;
+                }, 30);
+            });
+        }
 
   </script>
 </body>
