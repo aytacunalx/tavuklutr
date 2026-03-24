@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tavuklu Board</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/takeover');
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --accent: #FFD700;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --bg-light: #FAFAF8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at top right, rgba(255, 107, 53, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(255, 107, 53, 0.08) 0%, transparent 40%),
+                        #fffcf9;
+        }
+
+        /* Layout & Container */
+        #app {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand {
+            font-family: 'Takeover', sans-serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--primary);
+            text-transform: lowercase;
+            letter-spacing: 1px;
+        }
+
+        /* Clock */
+        .clock {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            z-index: 10;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Slide Container */
+        .slide-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 60px 100px;
+        }
+
+        /* Slide Transitions */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none; /* Prevent interaction during transition */
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .slide.exit {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        /* --- SLIDE TYPE: PRODUCT (HERO) --- */
+        .product-slide {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 50px;
+        }
+
+        .product-info {
+            width: 45%;
+        }
+
+        .product-name {
+            font-size: 96px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .slide.active .product-name {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-desc {
+            font-size: 32px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            font-weight: 400;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s ease 0.4s;
+        }
+
+        .slide.active .product-desc {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-price {
+            font-size: 140px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            display: inline-block;
+            position: relative;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+        }
+
+        .slide.active .product-price {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .currency {
+            font-size: 60px;
+            vertical-align: super;
+            opacity: 0.8;
+        }
+
+        .product-image-wrapper {
+            width: 50%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .product-img {
+            width: 100%;
+            max-height: 700px;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            transform: scale(0.8) rotate(-5deg);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+        }
+
+        .slide.active .product-img {
+            transform: scale(1.1) rotate(0deg);
+            opacity: 1;
+        }
+
+        /* --- SLIDE TYPE: GRID (FLAVORS) --- */
+        .grid-slide-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 80px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 6px;
+            background: var(--primary);
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        .flavors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            width: 100%;
+        }
+
+        .flavor-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .flavor-card.active-card { /* For staggering animation */
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .flavor-icon {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: rgba(255, 107, 53, 0.1);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .flavor-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- SLIDE TYPE: ADVANTAGE (COMBO) --- */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+        }
+
+        .combo-card {
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            position: relative;
+            border-top: 6px solid var(--primary);
+        }
+
+        .combo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: #000;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            z-index: 2;
+        }
+
+        .combo-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .combo-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .combo-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .combo-desc {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .combo-price {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* --- SLIDE TYPE: SLOGAN --- */
+        .slogan-slide {
+            text-align: center;
+        }
+
+        .slogan-text {
+            font-size: 120px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-dark);
+            letter-spacing: -2px;
+        }
+
+        .slogan-highlight {
+            color: var(--primary);
+            display: block;
+        }
+
+        .slogan-sub {
+            font-size: 40px;
+            color: var(--text-gray);
+            margin-top: 30px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 8px;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Brand Header -->
+    <header>
+        <img src="../img/animasyonlu-logo.gif" alt="" style="height: 70px; width: auto;">
+        <div class="brand">tavuklu.tr</div>
+    </header>
+
+    <div id="app">
+        <div class="slide-container" id="slide-container">
+            <!-- Slides rendered via JS -->
+        </div>
+        <div class="clock" id="clock">00:00</div>
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const SLIDE_DURATION = 7000; // ms
+
+        // --- Data ---
+        const slides = [
+            // 1. Hero Products
+            {
+                type: 'product',
+                title: 'Tavuklu Tabak',
+                price: '240',
+                desc: 'Soslu tavuk, pesto soslu makarna ve salata',
+                img: '/img/tabak.jpeg'
+            },
+            {
+                type: 'product',
+                title: 'Tombik Ekmek',
+                price: '140',
+                desc: 'Bol soslu, bol malzemeli',
+                img: '/img/tombik_ekmek.png' // Using path from context
+            },
+            // 2. Slogan
+            {
+                type: 'slogan',
+                main: 'Gerçek Lezzet',
+                highlight: 'BURADA',
+                sub: ' '
+            },
+            // 3. More Hero Products
+            {
+                type: 'product',
+                title: 'Yarım Ekmek',
+                price: '130',
+                desc: 'Klasik lezzet, hızlı servis',
+                img: '/img/yarim_ekmek.png'
+            },
+            {
+                type: 'product',
+                title: 'Tam Ekmek',
+                price: '230',
+                desc: '200gr Tavuk ile efsane doyuruculuk',
+                img: '/img/tam_ekmek.png' // Or img/tamekmek.jpg
+            },
+            {
+                type: 'product',
+                title: 'Gurme Tavuklu Burger',
+                price: '260',
+                desc: 'Kelle peyniri, sweet chili sos ve özel brioche ekmek',
+                img: '/video/6.webm'
+            },
+            // 4. Popular Flavors
+            {
+                type: 'grid',
+                title: 'En Çok Tercih Edilen Soslar',
+                items: [
+                    { name: 'Köri Soslu', icon: 'fa-bowl-rice' },
+                    { name: 'Barbekü Soslu', icon: 'fa-fire' },
+                    { name: 'Acı Soslu', icon: 'fa-pepper-hot' },
+                    { name: 'Teriyaki Soslu', icon: 'fa-wind' } 
+                ]
+            },
+            // 5. Advantage Menu
+            {
+                type: 'advantage',
+                title: 'Avantajlı Menüler',
+                items: [
+                    { title: 'Tabak Menü', desc: 'Tavuklu Tabak + Kutu İçecekler', price: '350', img: '/img/tabak-cola.png' },
+                    { title: 'Tombik Menü', desc: 'Tombik Ekmek + Kutu İçecekler', price: '250', img: '/img/tombik-cola.png' },
+                    { title: 'Tam Ekmek Menü', desc: 'Tam Ekmek + Kutu İçecekler', price: '350', img: '/img/tam-cola.png' }
+                ]
+            },
+            // 6. Citir Tavuk
+            {
+                type: 'product',
+                title: 'Çıtır Tavuklu Tabağı',
+                price: '180',
+                desc: 'Çıtır tavuk parçaları, patates kızartması',
+                img: '/img/citir.webp'
+            },
+             // 7. Slogan
+             {
+                type: 'slogan',
+                main: 'Tavuğun En İyi',
+                highlight: 'HALİ',
+                sub: 'KALİTEYİ TADIN'
+            }
+        ];
+
+        // --- Logic ---
+        let currentIndex = 0;
+        const container = document.getElementById('slide-container');
+        const progressBar = document.getElementById('progress');
+        let startTime = Date.now();
+
+        function renderSlide(slide) {
+            let html = '';
+
+            if (slide.type === 'product') {
+                const isVideo = slide.img.endsWith('.webm') || slide.img.endsWith('.mp4');
+                const mediaHtml = isVideo 
+                    ? `<video src="${slide.img}" class="product-img" autoplay muted loop playsinline></video>`
+                    : `<img src="${slide.img}" class="product-img" onerror="this.src='https://placehold.co/600x600/FF6B35/FFFFFF?text=${slide.title}'" alt="${slide.title}">`;
+
+                html = `
+                    <div class="product-slide">
+                        <div class="product-info">
+                            <div class="product-name">${slide.title}</div>
+                            <div class="product-desc">${slide.desc}</div>
+                            <div class="product-price">${slide.price}<span class="currency">₺</span></div>
+                        </div>
+                        <div class="product-image-wrapper">
+                            ${mediaHtml}
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'grid') {
+                html = `
+                    <div class="grid-slide-container">
+                        <div class="section-title">${slide.title}</div>
+                        <div class="flavors-grid">
+                            ${slide.items.map((item, idx) => `
+                                <div class="flavor-card active-card" style="animation-delay: ${idx * 0.1}s">
+                                    <div class="flavor-icon"><i class="fa-solid ${item.icon}"></i></div>
+                                    <div class="flavor-name">${item.name}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'advantage') {
+                html = `
+                    <div class="grid-slide-container" style="transform: scale(0.85); transform-origin: center;">
+                        <div class="section-title" style="margin-bottom: 40px;">${slide.title}</div>
+                        <div class="advantage-grid">
+                            ${slide.items.map((item, idx) => `
+                                <div class="combo-card active-card" style="animation-delay: ${idx * 0.1}s">
+                                    <div class="combo-badge">Fırsat</div>
+                                    <img src="${item.img}" class="combo-img" onerror="this.src='https://placehold.co/400x300/e5e5e5/333?text=Menu'">
+                                    <div class="combo-content">
+                                        <div class="combo-title">${item.title}</div>
+                                        <div class="combo-desc">${item.desc}</div>
+                                        <div class="combo-price">${item.price}<span style="font-size:30px">₺</span></div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'slogan') {
+                html = `
+                    <div class="slogan-slide">
+                        <div class="slogan-text">
+                            ${slide.main}
+                            <span class="slogan-highlight">${slide.highlight}</span>
+                        </div>
+                        <div class="slogan-sub">${slide.sub}</div>
+                    </div>
+                `;
+            }
+
+            return html;
+        }
+
+        function updateSlide() {
+            // Create new slide element
+            const slideEl = document.createElement('div');
+            slideEl.className = 'slide';
+            slideEl.innerHTML = renderSlide(slides[currentIndex]);
+            
+            // Append and animate
+            container.appendChild(slideEl);
+            
+            // Force reflow
+            slideEl.offsetHeight;
+            
+            // Activate
+            slideEl.classList.add('active');
+
+            // Remove old slides
+            const oldSlides = document.querySelectorAll('.slide:not(:last-child)');
+            oldSlides.forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('exit');
+                setTimeout(() => el.remove(), 800); // Remove after transition
+            });
+
+            // Reset Timer
+            startTime = Date.now();
+        }
+
+        function progressLoop() {
+            const elapsed = Date.now() - startTime;
+            const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+            
+            progressBar.style.width = `${pct}%`;
+
+            if (elapsed >= SLIDE_DURATION) {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            }
+
+            requestAnimationFrame(progressLoop);
+        }
+
+        // --- Clock ---
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('tr-TR', {hour: '2-digit', minute:'2-digit'});
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Init
+        updateSlide();
+        requestAnimationFrame(progressLoop);
+
+    </script>
+</body>
+</html>
