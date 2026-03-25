@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tavuklu Board</title>
     
     <!-- Fonts -->
@@ -53,8 +53,8 @@
         /* Header */
         header {
             position: absolute;
-            top: 20px;
-            left: 30px;
+            top: 15px;
+            left: 20px;
             z-index: 10;
             display: flex;
             align-items: center;
@@ -63,7 +63,7 @@
 
         .brand {
             font-family: 'Takeover', sans-serif;
-            font-size: 30px;
+            font-size: 22px;
             font-weight: 400;
             color: var(--primary);
             text-transform: lowercase;
@@ -73,14 +73,14 @@
         /* Clock */
         .clock {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 15px;
+            right: 20px;
             z-index: 10;
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-dark);
             background: rgba(255, 255, 255, 0.9);
-            padding: 8px 20px;
+            padding: 5px 15px;
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
@@ -88,25 +88,25 @@
         /* QR Code Box */
         .qr-box {
             position: absolute;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: var(--white);
-            padding: 10px;
-            border-radius: 16px;
+            padding: 8px;
+            border-radius: 12px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             z-index: 20;
             text-align: center;
         }
 
         .qr-img {
-            width: 90px;
-            height: 90px;
+            width: 60px;
+            height: 60px;
             display: block;
             margin-bottom: 5px;
         }
 
         .qr-text {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 800;
             color: var(--text-dark);
             line-height: 1.2;
@@ -140,17 +140,17 @@
         /* Weather Widget */
         .bottom-widgets {
             position: absolute;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             z-index: 20;
         }
 
         .weather-widget {
             background: var(--white);
-            padding: 10px 20px;
+            padding: 6px 15px;
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             display: flex;
@@ -158,26 +158,26 @@
             gap: 10px;
             font-weight: 700;
             color: var(--text-dark);
-            font-size: 20px;
+            font-size: 16px;
         }
 
         /* Spotify Widget */
         .spotify-widget {
             background: var(--white);
-            padding: 8px 20px;
+            padding: 6px 15px;
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: var(--text-dark);
-            max-width: 350px;
-            transition: opacity 0.3s;
+            max-width: 280px;
+            transition: opacity 0.3s ease;
         }
 
         .spotify-icon {
             color: #1DB954;
-            font-size: 28px;
+            font-size: 20px;
         }
 
         .spotify-info {
@@ -188,22 +188,22 @@
         }
 
         .spotify-song {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 200px;
+            max-width: 150px;
         }
 
         .spotify-artist {
-            font-size: 12px;
+            font-size: 10px;
             color: var(--text-gray);
             font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 200px;
+            max-width: 150px;
         }
 
         /* Slide Container */
@@ -215,7 +215,7 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-            padding: 30px 40px;
+            padding: 20px 30px;
         }
 
         /* Slide Transitions */
@@ -224,12 +224,13 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translate3d(30px, 0, 0);
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none; /* Prevent interaction during transition */
+            will-change: transform, opacity;
         }
 
         .slide.active {
@@ -240,7 +241,7 @@
 
         .slide.exit {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translate3d(-30px, 0, 0);
         }
 
         /* --- SLIDE TYPE: PRODUCT (HERO) --- */
@@ -257,14 +258,14 @@
         }
 
         .product-name {
-            font-size: 60px;
+            font-size: 36px;
             line-height: 1;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--text-dark);
             transform: translateY(20px);
             opacity: 0;
-            transition: all 0.6s ease 0.3s;
+            transition: transform 0.5s ease 0.2s, opacity 0.5s ease 0.2s;
         }
 
         .slide.active .product-name {
@@ -273,13 +274,13 @@
         }
 
         .product-desc {
-            font-size: 24px;
+            font-size: 16px;
             color: var(--text-gray);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             font-weight: 400;
             transform: translateY(20px);
             opacity: 0;
-            transition: all 0.6s ease 0.4s;
+            transition: transform 0.5s ease 0.3s, opacity 0.5s ease 0.3s;
         }
 
         .slide.active .product-desc {
@@ -288,7 +289,7 @@
         }
 
         .product-price {
-            font-size: 100px;
+            font-size: 64px;
             font-weight: 800;
             color: var(--primary);
             line-height: 1;
@@ -296,7 +297,7 @@
             position: relative;
             transform: scale(0.9);
             opacity: 0;
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s, opacity 0.5s ease 0.4s;
         }
 
         .slide.active .product-price {
@@ -305,7 +306,7 @@
         }
 
         .currency {
-            font-size: 40px;
+            font-size: 24px;
             vertical-align: super;
             opacity: 0.8;
         }
@@ -322,22 +323,22 @@
         .product-image-wrapper::before {
             content: '';
             position: absolute;
-            width: 450px;
-            height: 450px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             z-index: -1;
-            animation: pulse 4s infinite ease-in-out;
+            /* Animasyon kaldırıldı */
         }
 
         .product-img {
             width: 100%;
-            max-height: 450px;
+            max-height: 320px;
             object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
             transform: scale(0.8) rotate(-5deg);
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s, opacity 0.7s ease 0.1s;
         }
 
         .slide.active .product-img {
@@ -352,10 +353,10 @@
         }
 
         .section-title {
-            font-size: 44px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             position: relative;
             display: inline-block;
         }
@@ -363,8 +364,8 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 6px;
+            width: 60px;
+            height: 4px;
             background: var(--primary);
             margin: 20px auto 0;
             border-radius: 10px;
@@ -373,20 +374,20 @@
         .flavors-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 15px;
             width: 100%;
         }
 
         .flavor-card {
             background: var(--white);
-            padding: 25px 15px;
-            border-radius: 20px;
+            padding: 15px 10px;
+            border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
             border: 2px solid transparent;
-            transition: all 0.3s;
+            transition: transform 0.3s ease;
         }
         
         .flavor-card.active-card { /* For staggering animation */
@@ -395,12 +396,12 @@
         }
 
         .flavor-icon {
-            font-size: 40px;
+            font-size: 28px;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             background: rgba(255, 107, 53, 0.1);
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -408,7 +409,7 @@
         }
 
         .flavor-name {
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-dark);
         }
@@ -417,29 +418,29 @@
         .advantage-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 15px;
             width: 100%;
         }
 
         .combo-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 50px rgba(0,0,0,0.08);
             position: relative;
-            border-top: 6px solid var(--primary);
+            border-top: 4px solid var(--primary);
         }
 
         .combo-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
             background: var(--accent);
             color: #000;
             font-weight: 800;
-            padding: 8px 20px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 18px;
+            font-size: 14px;
             z-index: 2;
         }
 
@@ -452,24 +453,24 @@
         }
 
         .combo-content {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         .combo-title {
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 5px;
         }
 
         .combo-desc {
-            font-size: 15px;
+            font-size: 12px;
             color: var(--text-gray);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .combo-price {
-            font-size: 40px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--primary);
         }
@@ -480,7 +481,7 @@
         }
 
         .slogan-text {
-            font-size: 80px;
+            font-size: 48px;
             font-weight: 800;
             line-height: 1.1;
             color: var(--text-dark);
@@ -493,11 +494,11 @@
         }
 
         .slogan-sub {
-            font-size: 28px;
+            font-size: 18px;
             color: var(--text-gray);
-            margin-top: 30px;
+            margin-top: 20px;
             font-weight: 400;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -509,7 +510,7 @@
             height: 8px;
             background: var(--primary);
             width: 0%;
-            transition: width 0.1s linear;
+            transition: none; /* JS ile kontrol edilecek */
         }
 
         /* Animations */
@@ -526,7 +527,7 @@
 
         /* Logo Slide */
         .big-logo {
-            width: 500px;
+            width: 320px;
             max-width: 80%;
             height: auto;
         }
@@ -545,13 +546,12 @@
             transform: rotate(-45deg);
             opacity: 0.09;
             pointer-events: none;
-            animation: scrollPattern 60s linear infinite;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease;
+            /* Hareketli animasyon kaldırıldı, sadece statik desen */
+            transition: opacity 0.6s ease;
         }
 
         .bg-pattern.warp-speed {
-            transform: rotate(-45deg) scale(1.4);
-            opacity: 0.25;
+            opacity: 0.2;
         }
 
         @keyframes scrollPattern {
@@ -568,7 +568,7 @@
 
     <!-- Brand Header -->
     <header>
-        <img src="../img/animasyonlu-logo.gif" alt="" style="height: 50px; width: auto;">
+        <img src="../img/animasyonlu-logo.gif" alt="" style="height: 35px; width: auto;">
         <div class="brand">tavuklu.tr</div>
     </header>
 
@@ -589,7 +589,7 @@
             <div class="weather-widget" id="weather"><i class="fa-solid fa-sun" style="color: var(--primary);"></i> --°C</div>
             
             <!-- Spotify Widget -->
-            <div class="spotify-widget" id="spotify">
+            <!-- <div class="spotify-widget" id="spotify">
                 <i class="fa-brands fa-spotify spotify-icon"></i>
                 <div class="equalizer">
                     <div class="bar"></div>
@@ -600,7 +600,7 @@
                     <div class="spotify-song" id="spotify-song">Tavuklu FM</div>
                     <div class="spotify-artist" id="spotify-artist">Lezzetli Müzik</div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="progress-bar" id="progress"></div>
@@ -627,12 +627,9 @@
                 desc: 'Bol soslu, bol malzemeli',
                 img: '/img/tombik_ekmek.png' // Using path from context
             },
-            // 2. Slogan
             {
-                type: 'slogan',
-                main: 'Gerçek Lezzet',
-                highlight: 'BURADA',
-                sub: ' '
+                type: 'product',
+                img: '../video/1.webm'
             },
             // 3. More Hero Products
             {
@@ -703,7 +700,7 @@
         let currentIndex = 0;
         const container = document.getElementById('slide-container');
         const progressBar = document.getElementById('progress');
-        let startTime = Date.now();
+        let slideTimer;
 
         function renderSlide(slide) {
             let html = '';
@@ -714,18 +711,28 @@
                     ? `<video src="${slide.img}" class="product-img" autoplay muted loop playsinline></video>`
                     : `<img src="${slide.img}" class="product-img" onerror="this.src='https://placehold.co/600x600/FF6B35/FFFFFF?text=${slide.title}'" alt="${slide.title}">`;
 
-                html = `
-                    <div class="product-slide">
-                        <div class="product-info">
-                            <div class="product-name">${slide.title}</div>
-                            <div class="product-desc">${slide.desc}</div>
-                            <div class="product-price"><span class="count-up" data-target="${slide.price}">0</span><span class="currency">₺</span></div>
+                if (slide.title || slide.price) {
+                    html = `
+                        <div class="product-slide">
+                            <div class="product-info">
+                                <div class="product-name">${slide.title || ''}</div>
+                                <div class="product-desc">${slide.desc || ''}</div>
+                                <div class="product-price"><span class="count-up" data-target="${slide.price || 0}">0</span><span class="currency">₺</span></div>
+                            </div>
+                            <div class="product-image-wrapper">
+                                ${mediaHtml}
+                            </div>
                         </div>
-                        <div class="product-image-wrapper">
-                            ${mediaHtml}
+                    `;
+                } else {
+                    html = `
+                        <div class="product-slide" style="justify-content: center;">
+                            <div class="product-image-wrapper" style="width: 85%;">
+                                ${mediaHtml}
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             } else if (slide.type === 'grid') {
                 html = `
                     <div class="grid-slide-container">
@@ -808,15 +815,13 @@
                 setTimeout(() => el.remove(), 800); // Remove after transition
             });
 
-            // Reset Timer
-            startTime = Date.now();
+            // Progress Bar Animation (CSS bazlı)
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            void progressBar.offsetWidth; // Force reflow
+            progressBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
+            progressBar.style.width = '100%';
 
-            // Background Transition Effect
-            const bg = document.querySelector('.bg-pattern');
-            bg.classList.add('warp-speed');
-            setTimeout(() => {
-                bg.classList.remove('warp-speed');
-            }, 600);
         }
 
         function runCountUpAnimations(container) {
@@ -841,18 +846,12 @@
             });
         }
 
-        function progressLoop() {
-            const elapsed = Date.now() - startTime;
-            const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
-            
-            progressBar.style.width = `${pct}%`;
-
-            if (elapsed >= SLIDE_DURATION) {
+        function startSlideshow() {
+            updateSlide();
+            slideTimer = setInterval(() => {
                 currentIndex = (currentIndex + 1) % slides.length;
                 updateSlide();
-            }
-
-            requestAnimationFrame(progressLoop);
+            }, SLIDE_DURATION);
         }
 
         // --- Clock ---
@@ -923,8 +922,7 @@
         setInterval(updateSpotify, 300000); 
 
         // Init
-        updateSlide();
-        requestAnimationFrame(progressLoop);
+        startSlideshow();
 
     </script>
 </body>
