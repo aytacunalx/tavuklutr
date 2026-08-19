@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-   
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/ico.png" type="image/x-icon" />
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDF5PPDR8F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-JDF5PPDR8F');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDF5PPDR8F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JDF5PPDR8F');
+    </script>
 
     <!-- SEO Meta Etiketleri -->
     <title>Tavuklu - Mustafakemalpaşa'nın En İyi Tavuk ve Burger Lezzetleri</title>
-    <meta name="description" content="Bursa Mustafakemalpaşa'da eşsiz tavuk, gurme burger ve özel soslu tabak menüler. Taze malzemeler ve bold lezzetler Tavuklu'da. Hemen sipariş verin!">
-    <meta name="keywords" content="tavuklu, tavuk, burger, mustafakemalpaşa yemek, bursa yemek siparişi, gurme burger, tavuklu.tr, paket servis">
+    <meta name="description"
+        content="Bursa Mustafakemalpaşa'da eşsiz tavuk, gurme burger ve özel soslu tabak menüler. Taze malzemeler ve bold lezzetler Tavuklu'da. Hemen sipariş verin!">
+    <meta name="keywords"
+        content="tavuklu, tavuk, burger, mustafakemalpaşa yemek, bursa yemek siparişi, gurme burger, tavuklu.tr, paket servis">
     <meta name="author" content="Tavuklu.tr">
 
     <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
@@ -30,10 +33,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        
         @import url('https://fonts.cdnfonts.com/css/takeover');
 
         :root {
@@ -90,6 +94,7 @@
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -114,8 +119,15 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
         }
 
         .nav-menu-btn {
@@ -163,8 +175,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-30px, -30px) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-30px, -30px) scale(1.1);
+            }
         }
 
         .hero-content {
@@ -194,6 +213,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -290,12 +310,13 @@
         .video-slide {
             position: absolute;
             top: 5%;
-            width: 50%; /* Merkezdeki videonun genişliği */
+            width: 50%;
+            /* Merkezdeki videonun genişliği */
             height: 90%;
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.5s ease-in-out;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             /* Varsayılan gizli/arkada */
             left: 50%;
             transform: translateX(-50%) scale(0.5);
@@ -306,11 +327,42 @@
         }
 
         /* Pozisyonlar (Desktop) */
-        .video-slide.pos-1 { left: 15%; transform: translateX(-50%) scale(0.7); opacity: 0.6; z-index: 1; }
-        .video-slide.pos-2 { left: 30%; transform: translateX(-50%) scale(0.85); opacity: 0.8; z-index: 2; }
-        .video-slide.pos-3 { left: 50%; transform: translateX(-50%) scale(1); opacity: 1; z-index: 3; box-shadow: 0 20px 50px rgba(255, 107, 53, 0.4); border: 2px solid var(--orange); }
-        .video-slide.pos-4 { left: 70%; transform: translateX(-50%) scale(0.85); opacity: 0.8; z-index: 2; }
-        .video-slide.pos-5 { left: 85%; transform: translateX(-50%) scale(0.7); opacity: 0.6; z-index: 1; }
+        .video-slide.pos-1 {
+            left: 15%;
+            transform: translateX(-50%) scale(0.7);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .video-slide.pos-2 {
+            left: 30%;
+            transform: translateX(-50%) scale(0.85);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .video-slide.pos-3 {
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            z-index: 3;
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.4);
+            border: 2px solid var(--orange);
+        }
+
+        .video-slide.pos-4 {
+            left: 70%;
+            transform: translateX(-50%) scale(0.85);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .video-slide.pos-5 {
+            left: 85%;
+            transform: translateX(-50%) scale(0.7);
+            opacity: 0.6;
+            z-index: 1;
+        }
 
         .video-slide video {
             width: 100%;
@@ -324,24 +376,58 @@
                 height: 320px;
                 overflow: visible;
             }
-            
+
             .video-slide {
                 width: 65%;
                 top: 0;
                 height: 100%;
             }
-            
+
             /* Mobil Pozisyon Ayarlamaları */
-            .video-slide.pos-1 { left: 50%; transform: translateX(-50%) scale(0.5); opacity: 0; z-index: 0; }
-            .video-slide.pos-2 { left: 18%; transform: translateX(-50%) scale(0.8); opacity: 0.7; z-index: 2; }
-            .video-slide.pos-3 { left: 50%; transform: translateX(-50%) scale(1); opacity: 1; z-index: 3; }
-            .video-slide.pos-4 { left: 82%; transform: translateX(-50%) scale(0.8); opacity: 0.7; z-index: 2; }
-            .video-slide.pos-5 { left: 50%; transform: translateX(-50%) scale(0.5); opacity: 0; z-index: 0; }
+            .video-slide.pos-1 {
+                left: 50%;
+                transform: translateX(-50%) scale(0.5);
+                opacity: 0;
+                z-index: 0;
+            }
+
+            .video-slide.pos-2 {
+                left: 18%;
+                transform: translateX(-50%) scale(0.8);
+                opacity: 0.7;
+                z-index: 2;
+            }
+
+            .video-slide.pos-3 {
+                left: 50%;
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+                z-index: 3;
+            }
+
+            .video-slide.pos-4 {
+                left: 82%;
+                transform: translateX(-50%) scale(0.8);
+                opacity: 0.7;
+                z-index: 2;
+            }
+
+            .video-slide.pos-5 {
+                left: 50%;
+                transform: translateX(-50%) scale(0.5);
+                opacity: 0;
+                z-index: 0;
+            }
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Features Section */
@@ -544,8 +630,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         /* Map Section */
@@ -596,7 +689,7 @@
             margin-bottom: 32px;
             font-size: 16px;
         }
-        
+
         .footer-hours {
             margin: 0 auto 32px;
             max-width: 350px;
@@ -628,11 +721,11 @@
             padding: 6px 0;
             border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         }
-        
+
         .hours-table tr:last-child td {
             border-bottom: none;
         }
-        
+
         .hours-table td:last-child {
             text-align: right;
             font-weight: 600;
@@ -750,7 +843,7 @@
             font-size: 14px;
             margin-bottom: 16px;
         }
-        
+
         .product-price {
             font-weight: 700;
             color: var(--orange);
@@ -782,18 +875,36 @@
             color: var(--white);
         }
 
-        .prev-slide { left: -20px; }
-        .next-slide { right: -20px; }
+        .prev-slide {
+            left: -20px;
+        }
+
+        .next-slide {
+            right: -20px;
+        }
 
         @media (max-width: 992px) {
-            .product-card { flex: 0 0 calc(50% - 12px); }
+            .product-card {
+                flex: 0 0 calc(50% - 12px);
+            }
         }
 
         @media (max-width: 600px) {
-            .product-card { flex: 0 0 100%; }
-            .slider-viewport { margin: 0; }
-            .prev-slide { left: 10px; }
-            .next-slide { right: 10px; }
+            .product-card {
+                flex: 0 0 100%;
+            }
+
+            .slider-viewport {
+                margin: 0;
+            }
+
+            .prev-slide {
+                left: 10px;
+            }
+
+            .next-slide {
+                right: 10px;
+            }
         }
 
         /* Scroll Indicator */
@@ -817,8 +928,15 @@
         }
 
         @keyframes scrollBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
         }
 
         /* Responsive */
@@ -854,7 +972,9 @@
                 font-size: 24px;
             }
 
-            .features, .social-proof, .cta-section {
+            .features,
+            .social-proof,
+            .cta-section {
                 padding: 60px 20px;
             }
 
@@ -906,7 +1026,8 @@
             padding: 16px 0;
             overflow: hidden;
             position: relative;
-            transform: rotate(-1deg); /* Hafif eğiklik ile asi bir hava */
+            transform: rotate(-1deg);
+            /* Hafif eğiklik ile asi bir hava */
             margin: 20px 0 40px;
             box-shadow: var(--shadow-md);
             z-index: 10;
@@ -932,8 +1053,13 @@
         }
 
         @keyframes scrollText {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Floating Order Button (Sabit Sipariş Butonu) */
@@ -941,7 +1067,8 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #25D366; /* WhatsApp/Sipariş Yeşili */
+            background: #25D366;
+            /* WhatsApp/Sipariş Yeşili */
             color: white;
             width: 60px;
             height: 60px;
@@ -978,7 +1105,7 @@
             transition: all 0.3s ease;
             pointer-events: none;
             white-space: nowrap;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .floating-order-btn:hover::after {
@@ -988,7 +1115,8 @@
 
         /* Student Campaign Section */
         .student-campaign {
-            background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Mor gradyan - Genç/Öğrenci vibe */
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            /* Mor gradyan - Genç/Öğrenci vibe */
             padding: 60px 24px;
             text-align: center;
             color: var(--white);
@@ -1025,7 +1153,7 @@
             border-radius: 50px;
             display: inline-block;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             animation: pulse 2s infinite;
         }
 
@@ -1034,7 +1162,7 @@
             font-size: clamp(36px, 6vw, 64px);
             margin-bottom: 20px;
             line-height: 1.1;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .campaign-details {
@@ -1053,11 +1181,11 @@
         }
 
         .campaign-item {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             padding: 15px 30px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -1076,7 +1204,7 @@
             margin-top: 25px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .campaign-share-btn:hover {
@@ -1116,14 +1244,22 @@
             border-radius: 50%;
             background-color: currentColor;
             display: block;
-            box-shadow: 0 0 0 rgba(0,0,0,0);
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
             animation: pulse-dot 2s infinite;
         }
 
         @keyframes pulse-dot {
-            0% { box-shadow: 0 0 0 0 currentColor; }
-            70% { box-shadow: 0 0 0 6px rgba(0,0,0,0); }
-            100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+            0% {
+                box-shadow: 0 0 0 0 currentColor;
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1150,22 +1286,55 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
-        .top-bar a { color: var(--orange); text-decoration: none; font-weight: 800; }
-        .top-bar-close { background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 18px; padding: 0 5px; line-height: 1; }
-        .top-bar-close:hover { color: #fff; }
+
+        .top-bar a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .top-bar-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0 5px;
+            line-height: 1;
+        }
+
+        .top-bar-close:hover {
+            color: #fff;
+        }
 
         /* Adjustments when Top Bar is active */
-        body.with-top-bar nav { top: 40px; transition: top 0.3s ease; }
-        body.with-top-bar .hero { margin-top: 112px; transition: margin-top 0.3s ease; }
-        
+        body.with-top-bar nav {
+            top: 40px;
+            transition: top 0.3s ease;
+        }
+
+        body.with-top-bar .hero {
+            margin-top: 112px;
+            transition: margin-top 0.3s ease;
+        }
+
         @media (max-width: 768px) {
-            .top-bar { font-size: 11px; padding: 8px; gap: 10px; }
-            body.with-top-bar nav { top: 36px; }
-            body.with-top-bar .hero { margin-top: 100px; }
+            .top-bar {
+                font-size: 11px;
+                padding: 8px;
+                gap: 10px;
+            }
+
+            body.with-top-bar nav {
+                top: 36px;
+            }
+
+            body.with-top-bar .hero {
+                margin-top: 100px;
+            }
         }
 
         /* FAQ Section */
@@ -1190,7 +1359,7 @@
         }
 
         .faq-item {
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             margin-bottom: 10px;
         }
 
@@ -1248,18 +1417,21 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .gallery-item {
             border-radius: 12px;
             overflow: hidden;
             height: 200px;
             position: relative;
         }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
@@ -1292,20 +1464,24 @@
         }
 
         @keyframes skate {
-            0% { transform: translateY(0) rotate(-3deg); }
-            100% { transform: translateY(-10px) rotate(3deg); }
-        }
+            0% {
+                transform: translateY(0) rotate(-3deg);
+            }
 
-        
+            100% {
+                transform: translateY(-10px) rotate(3deg);
+            }
+        }
     </style>
 </head>
+
 <body class="with-top-bar">
     <!-- Preloader -->
     <div id="preloader">
         <img src="img/animasyonlu-logo.gif" alt="Yükleniyor..." class="preloader-gif">
     </div>
 
-    
+
 
     <!-- Top Notification Bar -->
     <div class="top-bar" id="topBar">
@@ -1337,7 +1513,8 @@
                 Taze malzeme, bol sos, sıfır drama. Sadece gerçek lezzet. Karnını doyur, moralini yükselt.
             </p>
             <div class="hero-cta">
-                <button class="btn btn-primary" onclick="scrollToMenu()">Menüye Git <i class="fa-solid fa-drumstick-bite"></i></button>
+                <button class="btn btn-primary" onclick="goToMenu()">Menüye Git <i
+                        class="fa-solid fa-drumstick-bite"></i></button>
                 <button class="btn btn-secondary" onclick="scrollToFeatures()">Neden Biz?</button>
             </div>
         </div>
@@ -1400,17 +1577,18 @@
             <span class="marquee-item">•</span>
         </div>
     </div>
-    
+
     <!-- Product Slider Section -->
     <section class="product-slider" id="products">
         <div class="slider-wrapper">
             <div class="slider-title">
-                <h2>Favori Lezzetler <div class="feature-icon"><i class="fa fa-star" aria-hidden="true"></i></div></h2>
+                <h2>Favori Lezzetler <div class="feature-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+                </h2>
                 <p>Müşterilerimizin en çok tercih ettiği menüler</p>
             </div>
-            
+
             <button class="slider-nav-btn prev-slide" onclick="moveSlide(-1)">❮</button>
-            
+
             <div class="slider-viewport">
                 <div class="slider-track" id="productTrack">
                     <!-- Product 1 -->
@@ -1418,7 +1596,8 @@
                         <img src="img/gurme-burger.png" alt="Gurme Burger" class="product-image">
                         <div class="product-info">
                             <h3>Tavuklu Gurme Burger</h3>
-                            <p>İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir final! Tavuklu Gurme Burger, ezber bozmaya geldi.</p>
+                            <p>İçeriğindeki kelle peyniri ile geleneksel bir dokunuş, sweet chili sos ile modern bir
+                                final! Tavuklu Gurme Burger, ezber bozmaya geldi.</p>
                             <div class="product-price">300₺</div>
                         </div>
                     </div>
@@ -1437,7 +1616,7 @@
                         <div class="product-info">
                             <h3>Tavuklu Tam Ekmek Köri</h3>
                             <p>Köri soslu 200 gr. tavuk, marul, domates, turşu, karamelize soğan.</p>
-                            <div class="product-price">240₺</div>
+                            <div class="product-price">180₺</div>
                         </div>
                     </div>
                     <!-- Product 4 -->
@@ -1462,7 +1641,8 @@
             <div class="campaign-badge">ÖĞRENCİYE ÖZEL KIYAK <i class="fa-solid fa-graduation-cap"></i></div>
             <h2>AYRAN VE PUDİNG BİZDEN!</h2>
             <p class="campaign-details">
-                Öğrenci kimliğini göster, gel-al ve restoran siparişlerinde yemeğinin yanına tatlın ve içeceğin bedava olsun.
+                Öğrenci kimliğini göster, gel-al ve restoran siparişlerinde yemeğinin yanına tatlın ve içeceğin bedava
+                olsun.
             </p>
             <div class="campaign-items">
                 <div class="campaign-item">
@@ -1472,8 +1652,10 @@
                     <span><i class="fa-solid fa-bowl-food"></i></span> Puding
                 </div>
             </div>
-            <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">*Sadece Gel-Al ve Restoran servislerinde geçerlidir.</p>
-            <a href="https://wa.me/?text=Kanka%20Tavuklu'da%20%C3%B6%C4%9Frenciye%20ayran%20ve%20puding%20bedavaym%C4%B1%C5%9F%2C%20ka%C3%A7%C4%B1rmayal%C4%B1m!%20https%3A%2F%2Ftavuklu.tr" target="_blank" class="campaign-share-btn">
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">*Sadece Gel-Al ve Restoran servislerinde
+                geçerlidir.</p>
+            <a href="https://wa.me/?text=Kanka%20Tavuklu'da%20%C3%B6%C4%9Frenciye%20ayran%20ve%20puding%20bedavaym%C4%B1%C5%9F%2C%20ka%C3%A7%C4%B1rmayal%C4%B1m!%20https%3A%2F%2Ftavuklu.tr"
+                target="_blank" class="campaign-share-btn">
                 <span><i class="fa-brands fa-whatsapp"></i></span> Arkadaşına Gönder
             </a>
         </div>
@@ -1490,7 +1672,8 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
                 <h3>Taze & Kaliteli</h3>
-                <p>Hiç donmuş tavuk kullanmıyoruz. Her gün taze, her lokmada fark edilir. Standartlarımız var, onları çiğnemiyoruz.</p>
+                <p>Hiç donmuş tavuk kullanmıyoruz. Her gün taze, her lokmada fark edilir. Standartlarımız var, onları
+                    çiğnemiyoruz.</p>
             </div>
 
             <div class="feature-card">
@@ -1551,7 +1734,8 @@
                     <i class="fa-solid fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
-                    Mustafakemalpaşa merkez ve çevresine hızlı teslimat yapıyoruz. Uzak bölgeler için lütfen telefonla bilgi alınız.
+                    Mustafakemalpaşa merkez ve çevresine hızlı teslimat yapıyoruz. Uzak bölgeler için lütfen telefonla
+                    bilgi alınız.
                 </div>
             </div>
             <div class="faq-item">
@@ -1560,7 +1744,8 @@
                     <i class="fa-solid fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
-                    Haftanın her günü 11:30 - 24:00 saatleri arasında hizmetinizdeyiz. Pazar günleri açılış saatimiz 13:00. Gece acıkmaları için buradayız!
+                    Haftanın her günü 11:30 - 24:00 saatleri arasında hizmetinizdeyiz. Pazar günleri açılış saatimiz
+                    13:00. Gece acıkmaları için buradayız!
                 </div>
             </div>
             <div class="faq-item">
@@ -1604,7 +1789,10 @@
             <p>Vıraca Mah. Benli Ahmet Sk. No:3/A Mustafakemalpaşa/BURSA</p>
         </div>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d281.73572160363545!2d28.408578005834585!3d40.03682480306076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b60f9c4619f19d%3A0xfda1afb2f8f14b09!2sTavuklu!5e1!3m2!1str!2str!4v1771363804362!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d281.73572160363545!2d28.408578005834585!3d40.03682480306076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b60f9c4619f19d%3A0xfda1afb2f8f14b09!2sTavuklu!5e1!3m2!1str!2str!4v1771363804362!5m2!1str!2str"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -1613,7 +1801,7 @@
         <div class="footer-content">
             <div class="footer-brand"><img src="img/tavuklutavuk.png" alt="tavuklu" class="logo-img"> tavuklu.tr</div>
             <p class="footer-tagline"><i class="fa-solid fa-face-wink"></i> Bunu yemeyen var mı?</p>
-            
+
             <div class="footer-hours">
                 <h3><i class="fa-solid fa-clock" style="color: var(--orange);"></i> Çalışma Saatleri</h3>
                 <table class="hours-table">
@@ -1629,16 +1817,21 @@
             </div>
 
             <div class="footer-social">
-                <a href="https://www.instagram.com/tavuklu.tr" target="_blank" class="social-icon" style="text-decoration: none;" title="Instagram">
+                <a href="https://www.instagram.com/tavuklu.tr" target="_blank" class="social-icon"
+                    style="text-decoration: none;" title="Instagram">
                     <img src="img/instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
                     <span>@tavuklu.tr</span>
                 </a>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 tavuklu.tr Tüm hakları saklıdır. Made with <i class="fa-solid fa-fire"></i> and <i class="fa-solid fa-drumstick-bite"></i></p>
+                <p>© 2026 tavuklu.tr Tüm hakları saklıdır. Made with <i class="fa-solid fa-fire"></i> and <i
+                        class="fa-solid fa-drumstick-bite"></i></p>
                 <p style="margin-top: 10px; font-size: 13px;">
-                    Geliştirici: <a href="https://web.mondkrone.workers.dev/" target="_blank" style="text-decoration: none;"><img src="img/mondkrone.png" alt="Mondkrone" style="height: 22px; vertical-align: middle; margin-left: 5px;" onmouseover="this.src='img/mondkrone_W.png'" onmouseout="this.src='img/mondkrone.png'"></a>
+                    Geliştirici: <a href="https://web.mondkrone.workers.dev/" target="_blank"
+                        style="text-decoration: none;"><img src="img/mondkrone.png" alt="Mondkrone"
+                            style="height: 22px; vertical-align: middle; margin-left: 5px;"
+                            onmouseover="this.src='img/mondkrone_W.png'" onmouseout="this.src='img/mondkrone.png'"></a>
                 </p>
             </div>
         </div>
@@ -1667,10 +1860,10 @@
             const track = document.getElementById('productTrack');
             const cards = document.querySelectorAll('.product-card');
             if (!cards.length) return;
-            
+
             const cardWidth = cards[0].offsetWidth;
             const gap = 24; // CSS gap
-            
+
             // Determine visible items
             let visibleItems = 3;
             if (window.innerWidth <= 600) visibleItems = 1;
@@ -1699,7 +1892,7 @@
                 startAutoSlide();
             }
         }
-        
+
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => moveSlide(1, true), 5000);
         }
@@ -1714,14 +1907,14 @@
         });
 
         function scrollToMenu() {
-            document.getElementById('menu-section').scrollIntoView({ 
+            document.getElementById('menu-section').scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
             });
         }
 
         function scrollToFeatures() {
-            document.getElementById('features').scrollIntoView({ 
+            document.getElementById('features').scrollIntoView({
                 behavior: 'smooth'
             });
         }
@@ -1771,21 +1964,21 @@
             document.querySelectorAll('.hero-video-slider video').forEach(vid => {
                 vid.addEventListener('ended', () => {
                     vid.currentTime = 0;
-                    vid.play().catch(() => {});
+                    vid.play().catch(() => { });
                 });
             });
 
             // Başlangıç sıralaması: pos-1, pos-2, pos-3, pos-4, pos-5
             // Döngüsel olarak sınıfları kaydıracağız
             let rotation = 0;
-            
+
             setInterval(() => {
                 rotation = (rotation + 1) % 5;
-                
+
                 slideElements.forEach((el, i) => {
                     // Mevcut sınıfları temizle
                     el.classList.remove('pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5');
-                    
+
                     // Yeni pozisyonu hesapla (döngüsel kaydırma)
                     let newPos = ((i + rotation) % 5) + 1;
                     el.classList.add(`pos-${newPos}`);
@@ -1795,7 +1988,7 @@
                     if (video) {
                         // Eğer video durmuşsa veya takılmışsa tekrar başlat
                         if (video.paused || video.ended) {
-                            video.play().catch(() => {});
+                            video.play().catch(() => { });
                         }
                     }
                 });
@@ -1807,10 +2000,10 @@
             button.addEventListener('click', () => {
                 const item = button.parentElement;
                 const isActive = item.classList.contains('active');
-                
+
                 // Close all others
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                
+
                 // Toggle current
                 if (!isActive) {
                     item.classList.add('active');
@@ -1852,7 +2045,7 @@
             }
         }, { threshold: 0.5 });
 
-        if(statsSection) statsObserver.observe(statsSection);
+        if (statsSection) statsObserver.observe(statsSection);
 
         // Close Top Bar Function
         function closeTopBar() {
@@ -1866,14 +2059,14 @@
             const now = new Date();
             const day = now.getDay(); // 0 = Pazar
             const minutes = now.getHours() * 60 + now.getMinutes();
-            
+
             // Pazar: 13:00 (780 dk) - 24:00 (1440 dk)
             // Diğer: 11:30 (690 dk) - 24:00 (1440 dk)
             const openTime = day === 0 ? 780 : 690;
             const closeTime = 1440; // 24:00
 
             const statusEl = document.getElementById('restaurant-status');
-            
+
             if (minutes >= openTime && minutes < closeTime) {
                 statusEl.className = 'status-badge status-open';
                 statusEl.innerHTML = '<span class="status-dot"></span> <span>Şu an Açığız</span>';
@@ -1885,7 +2078,7 @@
                 statusEl.innerHTML = `<span class="status-dot"></span> <span>Kapalı (Açılış: ${timeStr})</span>`;
             }
         }
-        
+
         updateStatus();
         setInterval(updateStatus, 60000); // Her dakika güncelle
 
@@ -1900,7 +2093,7 @@
         function createConfetti() {
             const modalContent = document.querySelector('.modal-content');
             const colors = ['#FF6B35', '#FFD700', '#FF8A5B', '#4CAF50', '#2196F3'];
-            
+
             for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
                 confetti.classList.add('confetti');
@@ -1919,4 +2112,5 @@
         }
     </script>
 </body>
+
 </html>
